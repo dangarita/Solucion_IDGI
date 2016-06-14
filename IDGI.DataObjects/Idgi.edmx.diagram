@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="95ea7fe0152c4ea7b1f844cb56c31630" Name="Diagram1" ZoomLevel="100">
+        <EntityTypeShape EntityType="DB_IDGIModel.Tbl_Bloque" Width="1.5" PointX="1.5" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IDGIModel.Tbl_Ciudad" Width="1.5" PointX="1.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IDGIModel.Tbl_Departamento" Width="1.5" PointX="1.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IDGIModel.Tbl_Elemento" Width="1.5" PointX="1.5" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IDGIModel.Tbl_Empresa" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IDGIModel.Tbl_EmpresaGestor" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IDGIModel.Tbl_Factor" Width="1.5" PointX="1.5" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IDGIModel.Tbl_Gestor" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IDGIModel.Tbl_Pais" Width="1.5" PointX="1.5" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IDGIModel.Tbl_Pilar" Width="1.5" PointX="1.5" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IDGIModel.Tbl_Pregunta" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IDGIModel.Tbl_Respuesta" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="DB_IDGIModel.FK_Tbl_Bloque_Tbl_Pilar" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IDGIModel.FK_Tbl_Factor_Tbl_Bloque" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IDGIModel.FK_Tbl_Ciudad_Tbl_Departamento" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IDGIModel.FK_Tbl_Empresa_Tbl_Ciudad" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IDGIModel.FK_Tbl_Departamento_Tbl_Pais" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IDGIModel.FK_Tbl_Elemento_Tbl_Factor" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IDGIModel.FK_Tbl_Pregunta_Tbl_Elemento" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IDGIModel.FK_Tbl_EmpresaGestor_Tbl_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IDGIModel.FK_Tbl_Respuesta_Tbl_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IDGIModel.FK_Tbl_EmpresaGestor_Tbl_Gestor" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IDGIModel.FK_Tbl_Respuesta_Tbl_Gestor" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IDGIModel.FK_Tbl_Respuesta_Tbl_Pregunta" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB_IDGIModel.View_Preguntas" Width="1.5" PointX="6.625" PointY="3.75" />
+        <EntityTypeShape EntityType="DB_IDGIModel.View_Ciudad" Width="1.5" PointX="9" PointY="3.5" />
+        <EntityTypeShape EntityType="DB_IDGIModel.View_Departamento" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_IDGIModel.View_Pais" Width="1.5" PointX="10.125" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

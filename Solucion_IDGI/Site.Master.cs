@@ -69,7 +69,10 @@ namespace Solucion_IDGI
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["ColtureInfo"] == null)
+            {
+                Session["ColtureInfo"] = Request.UserLanguages[0].ToString();
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

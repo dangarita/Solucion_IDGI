@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Library.Utilidades, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\EglobalSolutions\SmartServices\EGlobal_SmartServices\Libray\Library.Utilidades.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -384,6 +388,8 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\Base\ControllerBase.cs" />
+    <Compile Include="Controllers\Empresas\Empresa_Controller.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -420,7 +426,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Administracion\" />
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IDGI.CultureResource\IDGI.CultureResource.csproj">
+      <Project>{c7001a3f-109c-4e82-84c7-57d72f5cdca7}</Project>
+      <Name>IDGI.CultureResource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDGI.Entities\IDGI.Entities.csproj">
+      <Project>{5c9955fb-7702-486d-b7b4-98b21b7b8a73}</Project>
+      <Name>IDGI.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDGI.Model\IDGI.Model.csproj">
+      <Project>{17194236-340e-42a3-8d85-0f70806a0061}</Project>
+      <Name>IDGI.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
