@@ -194,6 +194,18 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
           <Property Name="Nom_Elemento" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Nom_Pregunta" Type="varchar" MaxLength="500" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_IDGI.dbo.View_SectoresEmpresariales' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_SectoresEmpresariales">
+          <Key>
+            <PropertyRef Name="Id_SectorEmpresarial" />
+            <PropertyRef Name="Nom_Sector" />
+            <PropertyRef Name="EstaActivo" />
+          </Key>
+          <Property Name="Id_SectorEmpresarial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_Sector" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="EstaActivo" Type="bit" Nullable="false" />
+        </EntityType>
         <Association Name="FK_Tbl_Bloque_Tbl_Pilar">
           <End Role="Tbl_Pilar" Type="Self.Tbl_Pilar" Multiplicity="1" />
           <End Role="Tbl_Bloque" Type="Self.Tbl_Bloque" Multiplicity="*" />
@@ -429,6 +441,13 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
     [View_Preguntas].[Nom_Elemento] AS [Nom_Elemento], 
     [View_Preguntas].[Nom_Pregunta] AS [Nom_Pregunta]
     FROM [dbo].[View_Preguntas] AS [View_Preguntas]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_SectoresEmpresariales" EntityType="Self.View_SectoresEmpresariales" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_SectoresEmpresariales].[Id_SectorEmpresarial] AS [Id_SectorEmpresarial], 
+    [View_SectoresEmpresariales].[Nom_Sector] AS [Nom_Sector], 
+    [View_SectoresEmpresariales].[EstaActivo] AS [EstaActivo]
+    FROM [dbo].[View_SectoresEmpresariales] AS [View_SectoresEmpresariales]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_Tbl_Bloque_Tbl_Pilar" Association="Self.FK_Tbl_Bloque_Tbl_Pilar">
             <End Role="Tbl_Pilar" EntitySet="Tbl_Pilar" />
@@ -878,6 +897,7 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
             <End Role="Tbl_SectorEmpresarial" EntitySet="Tbl_SectorEmpresarial" />
             <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
           </AssociationSet>
+          <EntitySet Name="View_SectoresEmpresariales" EntityType="DB_IDGIModel.View_SectoresEmpresariales" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -963,6 +983,16 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="View_SectoresEmpresariales">
+          <Key>
+            <PropertyRef Name="Id_SectorEmpresarial" />
+            <PropertyRef Name="Nom_Sector" />
+            <PropertyRef Name="EstaActivo" />
+          </Key>
+          <Property Name="Id_SectorEmpresarial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Sector" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="EstaActivo" Type="Boolean" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1172,6 +1202,15 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
           <EntitySetMapping Name="Tbl_SectorEmpresarial">
             <EntityTypeMapping TypeName="DB_IDGIModel.Tbl_SectorEmpresarial">
               <MappingFragment StoreEntitySet="Tbl_SectorEmpresarial">
+                <ScalarProperty Name="EstaActivo" ColumnName="EstaActivo" />
+                <ScalarProperty Name="Nom_Sector" ColumnName="Nom_Sector" />
+                <ScalarProperty Name="Id_SectorEmpresarial" ColumnName="Id_SectorEmpresarial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_SectoresEmpresariales">
+            <EntityTypeMapping TypeName="DB_IDGIModel.View_SectoresEmpresariales">
+              <MappingFragment StoreEntitySet="View_SectoresEmpresariales">
                 <ScalarProperty Name="EstaActivo" ColumnName="EstaActivo" />
                 <ScalarProperty Name="Nom_Sector" ColumnName="Nom_Sector" />
                 <ScalarProperty Name="Id_SectorEmpresarial" ColumnName="Id_SectorEmpresarial" />
