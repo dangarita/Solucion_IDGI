@@ -117,6 +117,237 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Genearl_Titulo_Opciones" xml:space="preserve">
+    <value>Opciones</value>
+  </data>
+  <data name="General_ActualizacionOK" xml:space="preserve">
+    <value>Actualización Satisfactoria...</value>
+  </data>
+  <data name="General_Administrador" xml:space="preserve">
+    <value>Administrador</value>
+  </data>
+  <data name="General_AplicationContexRequerido" xml:space="preserve">
+    <value>Nombre Aplicación Requerida</value>
+  </data>
+  <data name="General_BotonModificar" xml:space="preserve">
+    <value>Modificar</value>
+  </data>
+  <data name="General_Boton_Agregar" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="General_Boton_Attach" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="General_Boton_Consultar" xml:space="preserve">
+    <value>Consultar</value>
+  </data>
+  <data name="General_Boton_Guardar" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="General_Boton_Limpiar" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="General_Boton_Nuevo" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+  <data name="General_Boton_Regresar" xml:space="preserve">
+    <value>Regresar</value>
+  </data>
+  <data name="General_BtnAceptar" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="General_BtnActualizar" xml:space="preserve">
+    <value>Actualizar</value>
+  </data>
+  <data name="General_BtnAyuda" xml:space="preserve">
+    <value>Ayuda</value>
+  </data>
+  <data name="General_BtnCancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="General_BtnExportar" xml:space="preserve">
+    <value>Exportar</value>
+  </data>
+  <data name="General_BtnGuardar" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="General_BtnImprimir" xml:space="preserve">
+    <value>Imprimir</value>
+  </data>
+  <data name="General_BtnNuevo" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+  <data name="General_BtnRegistrar" xml:space="preserve">
+    <value>Registrar</value>
+  </data>
+  <data name="General_BtnRemoverFiltro" xml:space="preserve">
+    <value>Remover Filtro</value>
+  </data>
+  <data name="General_EliminacionOK" xml:space="preserve">
+    <value>Eliminación Satisfactoria...</value>
+  </data>
+  <data name="General_Erro_LongExpress" xml:space="preserve">
+    <value>El campo no tiene la longitud correcta</value>
+  </data>
+  <data name="General_Erro_RegExpression" xml:space="preserve">
+    <value>El campo contiene caracteres no validos</value>
+  </data>
+  <data name="General_Err_BaseDatos" xml:space="preserve">
+    <value>Error General de base de datos</value>
+  </data>
+  <data name="General_Err_ClaveDiferente" xml:space="preserve">
+    <value>La Clave Nueva no es igual  la confirmada</value>
+  </data>
+  <data name="General_Err_DeleteBd" xml:space="preserve">
+    <value>Error Eliminando en base de datos</value>
+  </data>
+  <data name="General_Err_EnvioCorreo" xml:space="preserve">
+    <value>Error enviando correo electrónico</value>
+  </data>
+  <data name="General_Err_InsertBd" xml:space="preserve">
+    <value>Error Insertando en base de datos</value>
+  </data>
+  <data name="General_Err_PassNuevo" xml:space="preserve">
+    <value>La contraseña nueva no puede ser igual a la contraseña anterior</value>
+  </data>
+  <data name="General_Err_RegExpreCaracteres" xml:space="preserve">
+    <value>El campo {0} debe tener minimo {1} caracteres</value>
+  </data>
+  <data name="General_Err_rexCorreo" xml:space="preserve">
+    <value>Correo Invalido</value>
+  </data>
+  <data name="General_Err_rexLogin" xml:space="preserve">
+    <value>El campo {0} debe tener minimo {1} caracteres</value>
+  </data>
+  <data name="General_Err_SelectBd" xml:space="preserve">
+    <value>Error Consultando en base de datos</value>
+  </data>
+  <data name="General_Err_SoloLetras" xml:space="preserve">
+    <value>El campo {0} solo permite letras</value>
+  </data>
+  <data name="General_Err_UpdateBd" xml:space="preserve">
+    <value>Error Actualizando en base de datos</value>
+  </data>
+  <data name="General_ExportacionEnUso" xml:space="preserve">
+    <value>Error Exportando : Archivo en Uso...</value>
+  </data>
+  <data name="General_ExportarError" xml:space="preserve">
+    <value>Error generando exportación de datos...</value>
+  </data>
+  <data name="General_ExportarSatisfactorio" xml:space="preserve">
+    <value>Exportación satisfactoria...</value>
+  </data>
+  <data name="General_Genero_Femenino" xml:space="preserve">
+    <value>Femenino</value>
+  </data>
+  <data name="General_Genero_Masculino" xml:space="preserve">
+    <value>Masculino</value>
+  </data>
+  <data name="General_InserccionOK" xml:space="preserve">
+    <value>Inserción Satisfactoria...</value>
+  </data>
+  <data name="General_Label_ActualContrasena" xml:space="preserve">
+    <value>Contraseña Anterior</value>
+  </data>
+  <data name="General_Label_Buscar" xml:space="preserve">
+    <value>Clic aquí para buscar!</value>
+  </data>
+  <data name="General_Label_ConfirmContrasena" xml:space="preserve">
+    <value>Confirmar Contraseña Nueva</value>
+  </data>
+  <data name="General_Label_Derechos" xml:space="preserve">
+    <value>- Todos los Derechos Reservados e-Global Technology</value>
+  </data>
+  <data name="General_Label_Idioma" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="General_Label_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="General_Label_NuevaContrasena" xml:space="preserve">
+    <value>Contraseña Nueva</value>
+  </data>
+  <data name="General_Label_PagAnterior" xml:space="preserve">
+    <value>Página Anterior</value>
+  </data>
+  <data name="General_Label_Paginas" xml:space="preserve">
+    <value>Páginas :</value>
+  </data>
+  <data name="General_Label_PagSiguiente" xml:space="preserve">
+    <value>Página Siguiente</value>
+  </data>
+  <data name="General_Label_PrimPagina" xml:space="preserve">
+    <value>Primera Página</value>
+  </data>
+  <data name="General_Label_Si" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="General_Label_Todos" xml:space="preserve">
+    <value>Todos</value>
+  </data>
+  <data name="General_Label_TotalRegistros" xml:space="preserve">
+    <value>Total Registros :</value>
+  </data>
+  <data name="General_Label_UltimoAcceso" xml:space="preserve">
+    <value>Último acceso {0}.</value>
+  </data>
+  <data name="General_Label_UltPagina" xml:space="preserve">
+    <value>Última Página</value>
+  </data>
+  <data name="General_Lbl_Ciudad" xml:space="preserve">
+    <value>Ciudad</value>
+  </data>
+  <data name="General_Lbl_Dpto" xml:space="preserve">
+    <value>Departamento</value>
+  </data>
+  <data name="General_Lbl_HoraFin" xml:space="preserve">
+    <value>Hora Fin:</value>
+  </data>
+  <data name="General_Lbl_HoraInicio" xml:space="preserve">
+    <value>Hora Inicio:</value>
+  </data>
+  <data name="General_Lbl_Pais" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="General_Link_Cerrar" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="General_Link_Cliente" xml:space="preserve">
+    <value>Clientes</value>
+  </data>
+  <data name="General_Link_Contact" xml:space="preserve">
+    <value>Contactenos</value>
+  </data>
+  <data name="General_Link_Contratos" xml:space="preserve">
+    <value>Contratos</value>
+  </data>
+  <data name="General_Link_LicAplicacion" xml:space="preserve">
+    <value>Licenciar Aplicación</value>
+  </data>
+  <data name="General_Link_LogIn" xml:space="preserve">
+    <value>Ingresar</value>
+  </data>
+  <data name="General_Link_Opciones" xml:space="preserve">
+    <value>Opciones</value>
+  </data>
+  <data name="General_Link_PersonalSoporte" xml:space="preserve">
+    <value>Personal Soporte</value>
+  </data>
+  <data name="General_Link_Reporte" xml:space="preserve">
+    <value>Reportes</value>
+  </data>
+  <data name="General_Link_RolAPlicacion" xml:space="preserve">
+    <value>Roles Por Aplicación</value>
+  </data>
+  <data name="General_Link_Usuarios" xml:space="preserve">
+    <value>Usuarios</value>
+  </data>
+  <data name="General_Link_Zonas" xml:space="preserve">
+    <value>Zonas</value>
+  </data>
+  <data name="General_MensajeEncabezado_GrillaWeb" xml:space="preserve">
+    <value>Click aquí para ordenar por </value>
+  </data>
   <data name="General_MensajeErrorCiudad" xml:space="preserve">
     <value>Error consultando ciudad</value>
   </data>
@@ -126,7 +357,148 @@
   <data name="General_MensajeErrorPais" xml:space="preserve">
     <value>Error consultando países</value>
   </data>
+  <data name="General_MensajeObligatorio" xml:space="preserve">
+    <value>Campo {0} Requerido</value>
+  </data>
+  <data name="General_MensajeObligatorio_Service" xml:space="preserve">
+    <value>{0} Obligatorio(a).</value>
+  </data>
   <data name="General_MensajeSeleccion" xml:space="preserve">
     <value>---Seleccione---</value>
+  </data>
+  <data name="General_MsjRex_Invalidos" xml:space="preserve">
+    <value>El campo {0} contiene caracteres no validos</value>
+  </data>
+  <data name="General_MsjRex_Password" xml:space="preserve">
+    <value>La contraseña debe ser de minimo {0} caracteres y debe tener, numeros, letras mayusculas y minusculas</value>
+  </data>
+  <data name="General_Msj_ActualizarOK" xml:space="preserve">
+    <value>Actualización Satisfactoria</value>
+  </data>
+  <data name="General_Msj_CambioContrasenia" xml:space="preserve">
+    <value>Debe cambiar la contraseña para continuar</value>
+  </data>
+  <data name="General_Msj_Eliminar" xml:space="preserve">
+    <value>¿Desea eliminar los datos?</value>
+  </data>
+  <data name="General_Msj_FechaInvalida" xml:space="preserve">
+    <value>La fecha final debe ser mayor a la fecha inicial</value>
+  </data>
+  <data name="General_Msj_FecReporte" xml:space="preserve">
+    <value>La fecha debe ser menor o igual a la de hoy</value>
+  </data>
+  <data name="General_Msj_InsercionOK" xml:space="preserve">
+    <value>Inserción Satisfactoria</value>
+  </data>
+  <data name="General_Msj_SinCambio" xml:space="preserve">
+    <value>Datos sin modificar</value>
+  </data>
+  <data name="General_Msj_SinRol" xml:space="preserve">
+    <value>El Usuario {0} debe tener al menos un rol asociado</value>
+  </data>
+  <data name="General_Msj_VerificarInst" xml:space="preserve">
+    <value>Verificando Instancia de la Aplicación...</value>
+  </data>
+  <data name="General_Rex_Password" xml:space="preserve">
+    <value>^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$</value>
+  </data>
+  <data name="General_SinRegistros" xml:space="preserve">
+    <value>No se encontraron registros...</value>
+  </data>
+  <data name="General_TextoEstadoActivo" xml:space="preserve">
+    <value>Activo</value>
+  </data>
+  <data name="General_TextoEstadoInactivo" xml:space="preserve">
+    <value>Inactivo</value>
+  </data>
+  <data name="General_TituloVistaPreviaImagen" xml:space="preserve">
+    <value>Vista Previa Imagen</value>
+  </data>
+  <data name="General_Titulo_Consultar" xml:space="preserve">
+    <value>Consultar</value>
+  </data>
+  <data name="General_Titulo_Datos" xml:space="preserve">
+    <value>Datos</value>
+  </data>
+  <data name="General_Titulo_Modificar" xml:space="preserve">
+    <value>Modificar</value>
+  </data>
+  <data name="General_Titulo_Nuevo" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+  <data name="General_Titulo_Reporte" xml:space="preserve">
+    <value>Reporte de Auditoria</value>
+  </data>
+  <data name="General_ToolTipActualizar" xml:space="preserve">
+    <value>Actualizar</value>
+  </data>
+  <data name="General_ToolTipBtnAceptar" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="General_ToolTipBtnAyuda" xml:space="preserve">
+    <value>Ayuda</value>
+  </data>
+  <data name="General_ToolTipBtnCancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="General_ToolTipBtnExportar" xml:space="preserve">
+    <value>Exportar</value>
+  </data>
+  <data name="General_ToolTipBtnNuevo" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+  <data name="General_ToolTipBtnRegistrar" xml:space="preserve">
+    <value>Registrar</value>
+  </data>
+  <data name="General_ToolTip_BotonConsultar" xml:space="preserve">
+    <value>Filtrar datos</value>
+  </data>
+  <data name="General_ToolTip_BotonConsultarGrilla" xml:space="preserve">
+    <value>Consultar registro...</value>
+  </data>
+  <data name="General_ToolTip_BotonEditarGrilla" xml:space="preserve">
+    <value>Editar registro...</value>
+  </data>
+  <data name="General_ToolTip_BotonEliminaGrilla" xml:space="preserve">
+    <value>Eliminar registro...</value>
+  </data>
+  <data name="General_ToolTip_BotonGuardar" xml:space="preserve">
+    <value>Almacenar Registro</value>
+  </data>
+  <data name="General_ToolTip_BotonLimpiar" xml:space="preserve">
+    <value>Limpiar filtro</value>
+  </data>
+  <data name="General_ToolTip_BotonModificar" xml:space="preserve">
+    <value>Modificar Registro</value>
+  </data>
+  <data name="General_ToolTip_BotonNuevo" xml:space="preserve">
+    <value>Crear un nuevo registro</value>
+  </data>
+  <data name="General_ToolTip_BotonRegresar" xml:space="preserve">
+    <value>Retorna a la pagina anterior</value>
+  </data>
+  <data name="General_Tooltip_Cerrar" xml:space="preserve">
+    <value>Cerrar Cesión. . .</value>
+  </data>
+  <data name="General_ToolTip_Download" xml:space="preserve">
+    <value>Descargar Archivo</value>
+  </data>
+  <data name="General_UserNameRequerido" xml:space="preserve">
+    <value>Usuario Requerido</value>
+  </data>
+  <data name="General_Usua_Cesion" xml:space="preserve">
+    <value>Usuario en Sesión...</value>
+  </data>
+  <data name="Label_UltimoAcceso" xml:space="preserve">
+    <value>Último acceso {0}.</value>
+  </data>
+  <data name="Servicio_Msj_SinAsignar" xml:space="preserve">
+    <value>Dispositivo sin asignar</value>
+  </data>
+  <data name="TituloModalMensajes" xml:space="preserve">
+    <value>Seguridad</value>
+  </data>
+  <data name="TituloModalMensajes_Tickets" xml:space="preserve">
+    <value>Tickets</value>
   </data>
 </root>

@@ -18,7 +18,7 @@ namespace IDGI.Model
             {
                 objEmpDao = new EmpresasDAO();
 
-                //oResultadoListaCiudad.ListaEntidadDatos = objEmpDao.ObtenerListaCiudad(idDpto);
+                oResultadoListaCiudad.ListaEntidadDatos = objEmpDao.ObtenerListaCiudad(idDpto);
             }
             catch (Exception ex)
             {
@@ -43,7 +43,7 @@ namespace IDGI.Model
             {
                 objEmpDao = new EmpresasDAO();
 
-                //oResultadoListaDpto.ListaEntidadDatos = objEmpDao.ObtenerListaDpto(idPais);
+                oResultadoListaDpto.ListaEntidadDatos = objEmpDao.ObtenerListaDpto(idPais);
             }
             catch (Exception ex)
             {
@@ -68,7 +68,7 @@ namespace IDGI.Model
             {
                 objEmpDao = new EmpresasDAO();
 
-                //oResultadoListaPais.ListaEntidadDatos = objEmpDao.ObtenerListaPaises();
+                oResultadoListaPais.ListaEntidadDatos = objEmpDao.ObtenerListaPaises();
             }
             catch (Exception ex)
             {

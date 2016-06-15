@@ -57,10 +57,11 @@
           </Key>
           <Property Name="Id_Empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nom_Empresa" Type="varchar" MaxLength="200" />
-          <Property Name="Num_Personal" Type="int" />
           <Property Name="Nit_Empresa" Type="varchar" MaxLength="20" />
-          <Property Name="Correo_Empresa" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Dir_Empresa" Type="varchar" MaxLength="250" />
           <Property Name="Telf_Empresa" Type="nchar" MaxLength="10" />
+          <Property Name="Correo_Empresa" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Num_Personal" Type="int" />
           <Property Name="Nom_Contacto" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="Id_Ciudad" Type="int" Nullable="false" />
           <Property Name="Id_SectorEmpresarial" Type="int" Nullable="false" />
@@ -557,6 +558,7 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
           <Property Name="Correo_Empresa" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Telf_Empresa" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Nom_Contacto" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Dir_Empresa" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Tbl_EmpresaGestor">
           <Key>
@@ -1021,6 +1023,7 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
           <EntitySetMapping Name="Tbl_Empresa">
             <EntityTypeMapping TypeName="DB_IDGIModel.Tbl_Empresa">
               <MappingFragment StoreEntitySet="Tbl_Empresa">
+                <ScalarProperty Name="Dir_Empresa" ColumnName="Dir_Empresa" />
                 <ScalarProperty Name="Nom_Contacto" ColumnName="Nom_Contacto" />
                 <ScalarProperty Name="Telf_Empresa" ColumnName="Telf_Empresa" />
                 <ScalarProperty Name="Correo_Empresa" ColumnName="Correo_Empresa" />

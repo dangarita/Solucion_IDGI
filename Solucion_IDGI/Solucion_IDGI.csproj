@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Library.Exception, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libray\Library.Exception.dll</HintPath>
+    </Reference>
     <Reference Include="Library.Utilidades, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>E:\EglobalSolutions\SmartServices\EGlobal_SmartServices\Libray\Library.Utilidades.dll</HintPath>
@@ -206,6 +210,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Empresas\FrmAdminEmpresa.aspx" />
+    <Content Include="Empresas\FrmCrudEmpresa.aspx" />
+    <Content Include="Empresas\UC_CrudEmpresa.ascx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -224,6 +231,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\WebForms\Controles.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -381,6 +389,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Base\PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Base\PageBaseChild.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -396,6 +410,27 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Empresas\FrmAdminEmpresa.aspx.cs">
+      <DependentUpon>FrmAdminEmpresa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empresas\FrmAdminEmpresa.aspx.designer.cs">
+      <DependentUpon>FrmAdminEmpresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Empresas\FrmCrudEmpresa.aspx.cs">
+      <DependentUpon>FrmCrudEmpresa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empresas\FrmCrudEmpresa.aspx.designer.cs">
+      <DependentUpon>FrmCrudEmpresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Empresas\UC_CrudEmpresa.ascx.cs">
+      <DependentUpon>UC_CrudEmpresa.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empresas\UC_CrudEmpresa.ascx.designer.cs">
+      <DependentUpon>UC_CrudEmpresa.ascx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -434,6 +469,10 @@
     <ProjectReference Include="..\IDGI.CultureResource\IDGI.CultureResource.csproj">
       <Project>{c7001a3f-109c-4e82-84c7-57d72f5cdca7}</Project>
       <Name>IDGI.CultureResource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDGI.Entities\IDGI.Entities.csproj">
+      <Project>{5c9955fb-7702-486d-b7b4-98b21b7b8a73}</Project>
+      <Name>IDGI.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\IDGI.Model\IDGI.Model.csproj">
       <Project>{17194236-340e-42a3-8d85-0f70806a0061}</Project>

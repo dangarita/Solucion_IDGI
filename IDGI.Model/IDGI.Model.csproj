@@ -61,6 +61,10 @@
       <Project>{84a3e8ab-5a78-4b39-af59-1449ee56545e}</Project>
       <Name>IDGI.DataObjects</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IDGI.Entities\IDGI.Entities.csproj">
+      <Project>{5c9955fb-7702-486d-b7b4-98b21b7b8a73}</Project>
+      <Name>IDGI.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

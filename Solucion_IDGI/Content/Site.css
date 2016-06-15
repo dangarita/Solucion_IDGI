@@ -45,3 +45,496 @@ input[type="select"] {
     padding: 1px 15px 3px 2px;
     border-radius:50px;
 }
+/*Collapse panel*/
+.toggle-box {
+    display: none;
+}
+
+    .toggle-box + label {
+        cursor: pointer;
+        display: block;
+        font-weight: bold;
+        line-height: 21px;
+        margin-bottom: 5px;
+    }
+
+        .toggle-box + label + div {
+            display: none;
+            margin-bottom: 10px;
+        }
+
+    .toggle-box:checked + label + div {
+        display: block;
+    }
+
+    .toggle-box + label:before {
+        background-color: #56BBF5;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        color: #FFFFFF;
+        content: "+";
+        display: block;
+        float: left;
+        font-weight: bold;
+        height: 20px;
+        line-height: 20px;
+        margin-right: 5px;
+        text-align: center;
+        width: 20px;
+    }
+
+    .toggle-box:checked + label:before {
+        content: "\2212";
+    }
+/*Paginado Grilla*/
+
+.GridPager a, .GridPager span {
+    display: block;
+    height: 20px;
+    width: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+.GridPager a {
+    background-color: #f5f5f5;
+    color: #969696;
+    border: 1px solid #969696;
+}
+
+.GridPager span {
+    background-color: #A1DCF2;
+    color: #000;
+    border: 1px solid #3AC0F2;
+}
+
+
+/*Fin Paginado Grilla*/
+/*GRILLAS*/
+.FooterStyle {
+    background: #c5c5c5;
+    font: bold 12px Helvaltica;
+    text-align: right;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.grid {
+    width: 100%;
+    border-top: solid 1px White;
+    border-bottom: solid #002D85;
+    border-left: solid #002D85;
+    border-right: solid #002D85;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #002D85;
+}
+
+.PanelScroll_GrillasPrincipales {
+    text-align: center;
+    overflow: hidden !important;
+}
+
+.selectedrow {
+    background: #DFE8F6;
+    border: 1px dotted #A3BAE9;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: normal;
+    text-transform: capitalize;
+    color: #002D85;
+    text-align: left;
+}
+
+.pagerstyle {
+    font-size: 10px;
+    text-align: center;
+    background-color: #98C6EA;
+    color: white;
+}
+
+.FilaGrilla {
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: normal;
+    text-transform: capitalize;
+    color: #002D85;
+    text-align: left;
+}
+
+.FilaGrillaProgramacion {
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: normal;
+    color: #002D85;
+    text-align: left;
+}
+
+.EncabezadoGrillasinborde {
+    border-right: 0;
+    border-left: 1px;
+}
+
+.EncabezadoGrillasinborde1 {
+    border-right: 0;
+    border-left: 0;
+}
+
+.EncabezadoGrillasinborde2 {
+    border-right: 1px;
+    border-left: 0;
+}
+
+.EncabezadoGrillasinborde3 {
+    border-right: 1px;
+    border-left: 0;
+}
+
+.EncabezadoGrilla {
+    font-family: Arial;
+    font-size: 12px;
+    text-transform: capitalize;
+    text-align: center;
+    border-width: 1px;
+    background-color: #f05a22;
+}
+
+.PieGrilla {
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: capitalize;
+    text-align: right;
+    border-width: 1px;
+    background-color: #f05a22;
+    border-style: solid;
+}
+
+.altrow {
+    border-style: solid;
+    border-width: 1px;
+    background-color: #f2f2f2;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: normal;
+    text-transform: capitalize;
+    color: #002D85;
+    text-align: left;
+}
+
+.altrowProgramacion {
+    border-style: solid;
+    border-width: 1px;
+    background-color: #f2f2f2;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: normal;
+    color: #002D85;
+    text-align: left;
+}
+
+.DivLogin {
+    background: transparent url('../Images/Png/Slider_1.jpg') 50% no-repeat;
+    background-size:100% auto;
+    height:300px;
+}
+
+
+.pagprev {
+    background-position: center;
+    background: transparent url('../Images/Png/previous.png') no-repeat scroll center;
+    height: 1.3em;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    border: 0px;
+}
+
+.pagnext {
+    background: transparent url('../Images/Png/next.png') no-repeat scroll center;
+    height: 1.3em;
+    width: 16px;
+    height:16px;
+    cursor: pointer;
+    border: 0px;
+}
+
+.pagfirst {
+    background: transparent url('../Images/Png/first.png') no-repeat scroll center;
+    height: 1.3em;
+    width: 16px;
+    height:16px;
+    cursor: pointer;
+    border: 0px;
+}
+
+.paglast {
+    background: transparent url('../Images/Png/last.png') no-repeat scroll center;
+    height: 1.3em;
+    width: 16px;
+    height:16px;
+    cursor: pointer;
+    border: 0px;
+}
+
+.TotalRegistros {
+    FONT-FAMILY: 'Arial';
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 7.5pt;
+    COLOR: #676767;
+    text-align: left;
+}
+
+/*SWITCH ESTADO*/
+.switch {
+    position: relative;
+    width: 86px;
+    display: block;
+    vertical-align: top;
+    width: 100px;
+    height: 30px;
+    padding: 3px;
+    margin: 0 10px 10px 0;
+    background: linear-gradient(to bottom, #eeeeee, #FFFFFF 25px);
+    background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF 25px);
+    border-radius: 18px;
+    box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    top: 0;
+    bottom: 0;
+}
+
+.switch-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.switch-label {
+    position: relative;
+    display: block;
+    height: inherit;
+    font-size: 10px;
+    text-transform: uppercase;
+    background: #eceeef;
+    border-radius: inherit;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+}
+
+    .switch-label:before, .switch-label:after {
+        position: absolute;
+        top: 50%;
+        margin-top: -.5em;
+        line-height: 1;
+        -webkit-transition: inherit;
+        -moz-transition: inherit;
+        -o-transition: inherit;
+        transition: inherit;
+    }
+
+    .switch-label:before {
+        content: attr(data-off);
+        right: 11px;
+        color: #aaaaaa;
+        text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+    }
+
+    .switch-label:after {
+        content: attr(data-on);
+        left: 11px;
+        color: #FFFFFF;
+        text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+    }
+
+.switch-input:checked ~ .switch-label {
+    background: #E1B42B;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+    .switch-input:checked ~ .switch-label:before {
+        opacity: 0;
+    }
+
+    .switch-input:checked ~ .switch-label:after {
+        opacity: 1;
+    }
+
+.switch-handle {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(to bottom, #FFFFFF 40%, #f0f0f0);
+    background-image: -webkit-linear-gradient(top, #FFFFFF 40%, #f0f0f0);
+    border-radius: 100%;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.2);
+}
+
+    .switch-handle:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -6px 0 0 -6px;
+        width: 12px;
+        height: 12px;
+        background: linear-gradient(to bottom, #eeeeee, #FFFFFF);
+        background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF);
+        border-radius: 6px;
+        box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+    }
+
+.switch-input:checked ~ .switch-handle {
+    left: 74px;
+    box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.switch-flat {
+    padding: 0;
+    background: #FFF;
+    background-image: none;
+}
+
+    .switch-flat .switch-label {
+        background: #FFF;
+        border: solid 2px #eceeef;
+        box-shadow: none;
+    }
+
+        .switch-flat .switch-label:after {
+            color: #0088cc;
+        }
+
+    .switch-flat .switch-handle {
+        top: 6px;
+        left: 6px;
+        background: #dadada;
+        width: 22px;
+        height: 22px;
+        box-shadow: none;
+    }
+
+        .switch-flat .switch-handle:before {
+            background: #eceeef;
+        }
+
+    .switch-flat .switch-input:checked ~ .switch-label {
+        background: #FFF;
+        border-color: #0088cc;
+    }
+
+    .switch-flat .switch-input:checked ~ .switch-handle {
+        left: 72px;
+        background: #0088cc;
+        box-shadow: none;
+    }
+
+/* Transition
+========================== */
+.switch-label, .switch-handle {
+    transition: All 0.3s ease;
+    -webkit-transition: All 0.3s ease;
+    -moz-transition: All 0.3s ease;
+    -o-transition: All 0.3s ease;
+}
+
+/*DROP DOWN*/
+.DropDownList {
+    font-family: Helvetica;
+    font-size: 9pt;
+    color: #404041;
+    font-weight: normal;
+    background-color: #FFFFFF;
+}
+
+.labelSecion {
+    padding-top: 7px;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    color: #FFFFFF; /*Color de los labels*/
+}
+
+.ListbxStyle {
+    border: solid 1px #0088CF;
+    height: 168px;
+    Width: 300px;
+}
+
+    .ListbxStyle label {
+        font-weight: bold;
+        color: #595657;
+    }
+
+.ChkListbxStyle {
+    height: auto;
+    Width: 180px;
+}
+
+    .ChkListbxStyle input {
+        background-color: Gray;
+    }
+
+    .ChkListbxStyle label {
+        font-weight: bold;
+        color: #595657;
+    }
+
+.TexboxMultiline {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    height: 150px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555555;
+    vertical-align: middle;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.rowFieldSet {
+    margin-right: 0;
+    margin-left: 45px;
+}
+
+.overlay {
+    position: fixed;
+    z-index: 98;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: #aaa;
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+}
+
+.overlayContent {
+    z-index: 99;
+    margin: 250px auto;
+    width: 80px;
+    height: 80px;
+}
+
+    .overlayContent h2 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #000;
+    }
