@@ -107,6 +107,9 @@
     <Compile Include="View_Preguntas.cs">
       <DependentUpon>Idgi.tt</DependentUpon>
     </Compile>
+    <Compile Include="View_SectoresEmpresariales.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
