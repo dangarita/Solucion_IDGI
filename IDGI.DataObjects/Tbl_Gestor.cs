@@ -7,26 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IDGI.Entities
+namespace IDGI.DataObjects
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_Elemento
+    public partial class Tbl_Gestor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tbl_Elemento()
+        public Tbl_Gestor()
         {
-            this.Tbl_Pregunta = new HashSet<Tbl_Pregunta>();
+            this.Tbl_EmpresaGestor = new HashSet<Tbl_EmpresaGestor>();
+            this.Tbl_Respuesta = new HashSet<Tbl_Respuesta>();
         }
     
-        public int Id_Elemento { get; set; }
-        public string Nom_Elemento { get; set; }
-        public bool EstaActivo { get; set; }
-        public int Id_Factor { get; set; }
+        public int Id_Gestor { get; set; }
+        public string Nom_Gestor { get; set; }
+        public string Ape_Gestor { get; set; }
     
-        public virtual Tbl_Factor Tbl_Factor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_Pregunta> Tbl_Pregunta { get; set; }
+        public virtual ICollection<Tbl_EmpresaGestor> Tbl_EmpresaGestor { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Respuesta> Tbl_Respuesta { get; set; }
     }
 }

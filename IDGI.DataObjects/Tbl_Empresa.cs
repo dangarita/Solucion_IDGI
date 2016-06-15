@@ -7,27 +7,35 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IDGI.Entities
+namespace IDGI.DataObjects
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_Gestor
+    public partial class Tbl_Empresa
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tbl_Gestor()
+        public Tbl_Empresa()
         {
             this.Tbl_EmpresaGestor = new HashSet<Tbl_EmpresaGestor>();
             this.Tbl_Respuesta = new HashSet<Tbl_Respuesta>();
         }
     
-        public int Id_Gestor { get; set; }
-        public string Nom_Gestor { get; set; }
-        public string Ape_Gestor { get; set; }
+        public int Id_Empresa { get; set; }
+        public string Nom_Empresa { get; set; }
+        public Nullable<int> Num_Personal { get; set; }
+        public int Id_Ciudad { get; set; }
+        public int Id_SectorEmpresarial { get; set; }
+        public string Nit_Empresa { get; set; }
+        public string Correo_Empresa { get; set; }
+        public string Telf_Empresa { get; set; }
+        public string Nom_Contacto { get; set; }
     
+        public virtual Tbl_Ciudad Tbl_Ciudad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_EmpresaGestor> Tbl_EmpresaGestor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_Respuesta> Tbl_Respuesta { get; set; }
+        public virtual Tbl_SectorEmpresarial Tbl_SectorEmpresarial { get; set; }
     }
 }

@@ -435,10 +435,6 @@
       <Project>{c7001a3f-109c-4e82-84c7-57d72f5cdca7}</Project>
       <Name>IDGI.CultureResource</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IDGI.Entities\IDGI.Entities.csproj">
-      <Project>{5c9955fb-7702-486d-b7b4-98b21b7b8a73}</Project>
-      <Name>IDGI.Entities</Name>
-    </ProjectReference>
     <ProjectReference Include="..\IDGI.Model\IDGI.Model.csproj">
       <Project>{17194236-340e-42a3-8d85-0f70806a0061}</Project>
       <Name>IDGI.Model</Name>

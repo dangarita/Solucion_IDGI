@@ -7,26 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IDGI.Entities
+namespace IDGI.DataObjects
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_Ciudad
+    public partial class View_Ciudad
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tbl_Ciudad()
-        {
-            this.Tbl_Empresa = new HashSet<Tbl_Empresa>();
-        }
-    
         public int Id_Ciudad { get; set; }
         public string Nom_Ciudad { get; set; }
-        public string Codigo_Ciudad { get; set; }
         public int Id_Departamento { get; set; }
-    
-        public virtual Tbl_Departamento Tbl_Departamento { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_Empresa> Tbl_Empresa { get; set; }
     }
 }

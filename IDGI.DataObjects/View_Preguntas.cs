@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IDGI.Entities
+namespace IDGI.DataObjects
 {
     using System;
     using System.Collections.Generic;

@@ -58,9 +58,12 @@
           <Property Name="Id_Empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nom_Empresa" Type="varchar" MaxLength="200" />
           <Property Name="Num_Personal" Type="int" />
-          <Property Name="Id_Ciudad" Type="int" Nullable="false" />
-          <Property Name="Id_SectorEmpresarial" Type="int" />
           <Property Name="Nit_Empresa" Type="varchar" MaxLength="20" />
+          <Property Name="Correo_Empresa" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Telf_Empresa" Type="nchar" MaxLength="10" />
+          <Property Name="Nom_Contacto" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Id_Ciudad" Type="int" Nullable="false" />
+          <Property Name="Id_SectorEmpresarial" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_EmpresaGestor">
           <Key>
@@ -251,7 +254,7 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tbl_Empresa_Tbl_SectorEmpresarial">
-          <End Role="Tbl_SectorEmpresarial" Type="Self.Tbl_SectorEmpresarial" Multiplicity="0..1" />
+          <End Role="Tbl_SectorEmpresarial" Type="Self.Tbl_SectorEmpresarial" Multiplicity="1" />
           <End Role="Tbl_Empresa" Type="Self.Tbl_Empresa" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_SectorEmpresarial">
@@ -548,9 +551,12 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
           <NavigationProperty Name="Tbl_Ciudad" Relationship="Self.FK_Tbl_Empresa_Tbl_Ciudad" FromRole="Tbl_Empresa" ToRole="Tbl_Ciudad" />
           <NavigationProperty Name="Tbl_EmpresaGestor" Relationship="Self.FK_Tbl_EmpresaGestor_Tbl_Empresa" FromRole="Tbl_Empresa" ToRole="Tbl_EmpresaGestor" />
           <NavigationProperty Name="Tbl_Respuesta" Relationship="Self.FK_Tbl_Respuesta_Tbl_Empresa" FromRole="Tbl_Empresa" ToRole="Tbl_Respuesta" />
-          <Property Name="Id_SectorEmpresarial" Type="Int32" />
+          <Property Name="Id_SectorEmpresarial" Type="Int32" Nullable="false" />
           <Property Name="Nit_Empresa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Tbl_SectorEmpresarial" Relationship="DB_IDGIModel.FK_Tbl_Empresa_Tbl_SectorEmpresarial" FromRole="Tbl_Empresa" ToRole="Tbl_SectorEmpresarial" />
+          <Property Name="Correo_Empresa" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Telf_Empresa" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Nom_Contacto" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Tbl_EmpresaGestor">
           <Key>
@@ -944,7 +950,7 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
           <NavigationProperty Name="Tbl_Empresa" Relationship="DB_IDGIModel.FK_Tbl_Empresa_Tbl_SectorEmpresarial" FromRole="Tbl_SectorEmpresarial" ToRole="Tbl_Empresa" />
         </EntityType>
         <Association Name="FK_Tbl_Empresa_Tbl_SectorEmpresarial">
-          <End Type="DB_IDGIModel.Tbl_SectorEmpresarial" Role="Tbl_SectorEmpresarial" Multiplicity="0..1" />
+          <End Type="DB_IDGIModel.Tbl_SectorEmpresarial" Role="Tbl_SectorEmpresarial" Multiplicity="1" />
           <End Type="DB_IDGIModel.Tbl_Empresa" Role="Tbl_Empresa" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_SectorEmpresarial">
@@ -1015,6 +1021,9 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
           <EntitySetMapping Name="Tbl_Empresa">
             <EntityTypeMapping TypeName="DB_IDGIModel.Tbl_Empresa">
               <MappingFragment StoreEntitySet="Tbl_Empresa">
+                <ScalarProperty Name="Nom_Contacto" ColumnName="Nom_Contacto" />
+                <ScalarProperty Name="Telf_Empresa" ColumnName="Telf_Empresa" />
+                <ScalarProperty Name="Correo_Empresa" ColumnName="Correo_Empresa" />
                 <ScalarProperty Name="Nit_Empresa" ColumnName="Nit_Empresa" />
                 <ScalarProperty Name="Id_SectorEmpresarial" ColumnName="Id_SectorEmpresarial" />
                 <ScalarProperty Name="Id_Empresa" ColumnName="Id_Empresa" />

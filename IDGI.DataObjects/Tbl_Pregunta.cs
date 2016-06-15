@@ -7,24 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IDGI.Entities
+namespace IDGI.DataObjects
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_Pais
+    public partial class Tbl_Pregunta
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tbl_Pais()
+        public Tbl_Pregunta()
         {
-            this.Tbl_Departamento = new HashSet<Tbl_Departamento>();
+            this.Tbl_Respuesta = new HashSet<Tbl_Respuesta>();
         }
     
-        public int Id_Pais { get; set; }
-        public string Nom_Pais { get; set; }
-        public string Codigo_Pais { get; set; }
+        public int Id_Pregunta { get; set; }
+        public string Nom_Pregunta { get; set; }
+        public bool EstaActivo { get; set; }
+        public int Id_Elemento { get; set; }
     
+        public virtual Tbl_Elemento Tbl_Elemento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_Departamento> Tbl_Departamento { get; set; }
+        public virtual ICollection<Tbl_Respuesta> Tbl_Respuesta { get; set; }
     }
 }

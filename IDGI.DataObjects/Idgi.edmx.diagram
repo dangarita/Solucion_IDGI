@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="95ea7fe0152c4ea7b1f844cb56c31630" Name="Diagram1" ZoomLevel="100">
+      <Diagram DiagramId="95ea7fe0152c4ea7b1f844cb56c31630" Name="Diagram1" ZoomLevel="98">
         <EntityTypeShape EntityType="DB_IDGIModel.Tbl_Bloque" Width="1.5" PointX="1.5" PointY="26.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_IDGIModel.Tbl_Ciudad" Width="1.5" PointX="1.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IDGIModel.Tbl_Ciudad" Width="1.5" PointX="5" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_IDGIModel.Tbl_Departamento" Width="1.5" PointX="1.5" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_IDGIModel.Tbl_Elemento" Width="1.5" PointX="1.5" PointY="20.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_IDGIModel.Tbl_Empresa" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />

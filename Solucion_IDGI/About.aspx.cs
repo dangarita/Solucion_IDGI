@@ -1,5 +1,4 @@
 ﻿using IDGI.CultureResource;
-using IDGI.Entities;
 using Solucion_IDGI.Controllers;
 using System;
 using System.Collections.Generic;
@@ -30,17 +29,17 @@ namespace Solucion_IDGI
             if (!IsPostBack)
             {
 
-                List<View_Pais> lstPais = _Empresa_Controller.ObtenerListaPais();
+                //List<View_Pais> lstPais = _Empresa_Controller.ObtenerListaPais();
 
-                View_Pais objPais = new View_Pais();
-                objPais.Id_Pais = 0;
-                objPais.Nom_Pais = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_MensajeSeleccion");
-                lstPais.Insert(0, objPais);
+                //View_Pais objPais = new View_Pais();
+                //objPais.Id_Pais = 0;
+                //objPais.Nom_Pais = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_MensajeSeleccion");
+                //lstPais.Insert(0, objPais);
 
-                ddlPais.DataTextField = "Nom_Pais";
-                ddlPais.DataValueField = "Id_Pais";
-                ddlPais.DataSource = lstPais;
-                ddlPais.DataBind();
+                //ddlPais.DataTextField = "Nom_Pais";
+                //ddlPais.DataValueField = "Id_Pais";
+                //ddlPais.DataSource = lstPais;
+                //ddlPais.DataBind();
             }
         }
 

@@ -7,26 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IDGI.Entities
+namespace IDGI.DataObjects
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_Departamento
+    public partial class Tbl_Bloque
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tbl_Departamento()
+        public Tbl_Bloque()
         {
-            this.Tbl_Ciudad = new HashSet<Tbl_Ciudad>();
+            this.Tbl_Factor = new HashSet<Tbl_Factor>();
         }
     
-        public int Id_Departamento { get; set; }
-        public string Nom_Departamento { get; set; }
-        public string Codigo_Departamento { get; set; }
-        public int Id_Pais { get; set; }
+        public int Id_Bloque { get; set; }
+        public string Nom_Bloque { get; set; }
+        public bool EstaActivo { get; set; }
+        public int Id_Pilar { get; set; }
     
+        public virtual Tbl_Pilar Tbl_Pilar { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_Ciudad> Tbl_Ciudad { get; set; }
-        public virtual Tbl_Pais Tbl_Pais { get; set; }
+        public virtual ICollection<Tbl_Factor> Tbl_Factor { get; set; }
     }
 }

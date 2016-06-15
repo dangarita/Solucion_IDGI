@@ -7,14 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IDGI.Entities
+namespace IDGI.DataObjects
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class View_Pais
+    public partial class Tbl_Respuesta
     {
-        public int Id_Pais { get; set; }
-        public string Nom_Pais { get; set; }
+        public int Id_Respuesta { get; set; }
+        public int Vlr_Respuesta { get; set; }
+        public int Id_Empresa { get; set; }
+        public Nullable<int> Id_Gestor { get; set; }
+        public int Id_Pregunta { get; set; }
+    
+        public virtual Tbl_Empresa Tbl_Empresa { get; set; }
+        public virtual Tbl_Gestor Tbl_Gestor { get; set; }
+        public virtual Tbl_Pregunta Tbl_Pregunta { get; set; }
     }
 }

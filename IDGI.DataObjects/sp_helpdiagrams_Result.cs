@@ -7,15 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IDGI.Entities
+namespace IDGI.DataObjects
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class View_Departamento
+    public partial class sp_helpdiagrams_Result
     {
-        public int Id_Pais { get; set; }
-        public string Nom_Departamento { get; set; }
-        public int Id_Departamento { get; set; }
+        public string Database { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }
