@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Solucion_IDGI.Empresas
 {
-    public partial class FrmCrudEmpresa : System.Web.UI.Page
+    public partial class frmCrudEmpresa : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

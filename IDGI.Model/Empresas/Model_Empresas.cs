@@ -84,5 +84,29 @@ namespace IDGI.Model
 
             return oResultadoListaPais;
         }
+        public ResultadoOperacion ObtenerListaSectores()
+        {
+            ResultadoOperacion oResultadoListaSector = new ResultadoOperacion();
+
+            try
+            {
+                objEmpDao = new EmpresasDAO();
+
+                oResultadoListaSector.ListaEntidadDatos = objEmpDao.ObtenerListaSectores();
+            }
+            catch (Exception ex)
+            {
+                oResultadoListaSector.oEstado = TipoRespuesta.Error;
+                oResultadoListaSector.Mensaje = ex.Message;
+
+                string sMensajeError = Multilanguage.GetResourceManagerMultilingual("ResEmpresa", "Empresa_MensajeErrorSector");
+                sMensajeError = sMensajeError + ex.Message;
+
+                throw new DataBaseException(Globales.NombreAplicacion.ToUpper(), sMensajeError, new Exception(sMensajeError));
+
+            }
+
+            return oResultadoListaSector;
+        }
     }
 }

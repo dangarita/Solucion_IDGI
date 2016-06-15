@@ -48,6 +48,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ResEmpresa.en.resx" />
+    <EmbeddedResource Include="ResEmpresa.es.resx" />
     <EmbeddedResource Include="ResGeneral.en.resx" />
     <EmbeddedResource Include="ResGeneral.es.resx" />
   </ItemGroup>

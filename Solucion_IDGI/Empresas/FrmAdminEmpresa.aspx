@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FrmAdminEmpresa.aspx.cs"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmAdminEmpresa.aspx.cs"
     Inherits="Solucion_IDGI.Empresas.FrmAdminEmpresa" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -7,37 +7,13 @@
             <input class="toggle-box" id="header1" type="checkbox">
             <label for="header1" runat="server" id="labelCollapse"></label>
             <div class="form-horizontal">
-               <%-- <table class="table table-responsive">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <asp:Label ID="lblEmpresa" runat="server" AssociatedControlID="txtEmpresa"
-                                    CssClass="col-md-2 control-label">Empresa</asp:Label>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtEmpresa" runat="server"
-                                    onpaste="return false;"
-                                    CssClass="form-control" MaxLength="100"></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:Label ID="lblNit" runat="server" AssociatedControlID="txtNit"
-                                    CssClass="col-md-2 control-label">Nit</asp:Label>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtNit" runat="server" MaxLength="15"
-                                    onkeypress="return numbersonly(event)" onpaste="return false;"
-                                    CssClass="form-control"></asp:TextBox>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>--%>
                 <br />
                 <br />
                  <div class="form-group">
-                    <asp:Label ID="lblCliente" runat="server" AssociatedControlID="txtCliente"
-                        CssClass="col-md-2 control-label">Cliente</asp:Label>
+                    <asp:Label ID="lblEmpresa" runat="server" AssociatedControlID="txtEmpresa"
+                        CssClass="col-md-2 control-label">Empresa</asp:Label>
                     <div class="col-md-10">
-                        <asp:TextBox ID="txtCliente" runat="server"
+                        <asp:TextBox ID="txtEmpresa" runat="server"
                             onpaste="return false;"
                             CssClass="form-control" MaxLength="100"></asp:TextBox>
                     </div>
@@ -61,14 +37,14 @@
             <br />
             <br />
             <div class="navbar-header">
-                <a class="btn icon-btn btn-success" href="../Contact.aspx">
+                <a class="btn icon-btn btn-success" href="../Empresas/frmCrudEmpresa.aspx" id="btnNuevo" runat="server">
                     <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add
                 </a>
             </div>
             <br />
             <br />
             <div>
-                <asp:GridView ID="grdCliente" runat="server" AllowSorting="True" CssClass="grid"
+                <asp:GridView ID="grdEmpresa" runat="server" AllowSorting="True" CssClass="grid"
                     AlternatingRowStyle-CssClass="altrowstyle" AutoGenerateColumns="False"
                     CellPadding="0" DataKeyNames="Id_Cliente"
                     Height="16px" OnPreRender="grilla_PreRender" OnRowCreated="grilla_RowCreated"
@@ -86,7 +62,7 @@
                                     CausesValidation="False"
                                     CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                     OnCommand="btnConsultarGrilla_Command"
-                                    CommandName="consultar" ImageUrl="~/Images/Ico-Search.png"
+                                    CommandName="consultar" ImageUrl="~/Images/Png/Ico-Search.png"
                                     ToolTip="Consultar Registro..." />
                             </ItemTemplate>
                             <HeaderStyle CssClass="EncabezadoGrillasinborde" Width="2%" />
@@ -97,7 +73,7 @@
                                 <asp:ImageButton ID="imgbModificarGrilla" runat="server"
                                     CausesValidation="False" OnCommand="btnModificarGrilla_Command"
                                     CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                    CommandName="modificar" ImageUrl="~/Images/EditarGrid.png"
+                                    CommandName="modificar" ImageUrl="~/Images/Png/EditarGrid.png"
                                     ToolTip="" />
                             </ItemTemplate>
                             <HeaderStyle CssClass="EncabezadoGrillasinborde" Width="2%" />

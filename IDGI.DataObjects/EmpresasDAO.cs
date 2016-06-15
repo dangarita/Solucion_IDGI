@@ -51,5 +51,22 @@ namespace IDGI.DataObjects
 
             return lstCiudad;
         }
+
+        public List<View_SectoresEmpresariales> ObtenerListaSectores()
+        {
+            List<View_SectoresEmpresariales> lstSectores = new List<View_SectoresEmpresariales>();
+
+            using (DB_IDGIEntities db = new DB_IDGIEntities())
+            {
+                lstSectores = (from obj in db.View_SectoresEmpresariales
+                             select new View_SectoresEmpresariales
+                             {
+                                 Id_SectorEmpresarial = obj.Id_SectorEmpresarial,
+                                 Nom_Sector = obj.Nom_Sector
+                             }).ToList();
+            }
+
+                return lstSectores;
+        }
     }
 }

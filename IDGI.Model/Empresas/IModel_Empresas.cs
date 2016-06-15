@@ -7,6 +7,7 @@ namespace IDGI.Model
         ResultadoOperacion ObtenerListaCiudad(int idDpto);
         ResultadoOperacion ObtenerListaDptos(int idPais);
         ResultadoOperacion ObtenerListaPais();
+        ResultadoOperacion ObtenerListaSectores();
 
     }
 }

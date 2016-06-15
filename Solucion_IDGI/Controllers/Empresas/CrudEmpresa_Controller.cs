@@ -7,7 +7,8 @@ using System.Collections.Generic;
 
 namespace Solucion_IDGI.Controllers
 {
-    class CrudEmpresa_Controller : ControllerBase
+    [Serializable]
+    public class CrudEmpresa_Controller : ControllerBase
     {
         public List<View_Pais> ObtenerListaPais()
         {
@@ -24,15 +25,15 @@ namespace Solucion_IDGI.Controllers
             return LstpaisNew;
         }
 
-        public List<View_Departamento> ObtenerListDpto(int idPais)
+        public List<View_Departamento> ObtenerListDpto(int idSector)
         {
             List<View_Departamento> LstDptoNew = new List<View_Departamento>();
 
-            ResultadoOperacion oResultadoPais = _Model.ObtenerListaDptos(idPais);
+            ResultadoOperacion oResultadoSector = _Model.ObtenerListaDptos(idSector);
 
-            if (oResultadoPais.oEstado == TipoRespuesta.Exito)
+            if (oResultadoSector.oEstado == TipoRespuesta.Exito)
             {
-                LstDptoNew = (List<View_Departamento>)oResultadoPais.ListaEntidadDatos;
+                LstDptoNew = (List<View_Departamento>)oResultadoSector.ListaEntidadDatos;
             }
 
             return LstDptoNew;
@@ -42,14 +43,29 @@ namespace Solucion_IDGI.Controllers
         {
             List<View_Ciudad> LstCiudadNew = new List<View_Ciudad>();
 
-            ResultadoOperacion oResultadoPais = _Model.ObtenerListaCiudad(idDpto);
+            ResultadoOperacion oResultadoSector = _Model.ObtenerListaCiudad(idDpto);
 
-            if (oResultadoPais.oEstado == TipoRespuesta.Exito)
+            if (oResultadoSector.oEstado == TipoRespuesta.Exito)
             {
-                LstCiudadNew = (List<View_Ciudad>)oResultadoPais.ListaEntidadDatos;
+                LstCiudadNew = (List<View_Ciudad>)oResultadoSector.ListaEntidadDatos;
             }
 
             return LstCiudadNew;
+        }
+
+        public List<View_SectoresEmpresariales> ObtenerListaSectores()
+        {
+            List<View_SectoresEmpresariales> LstSectorNew = new List<View_SectoresEmpresariales>();
+
+            ResultadoOperacion oResultadoSector = _Model.ObtenerListaSectores();
+
+            if (oResultadoSector.oEstado == TipoRespuesta.Exito)
+            {
+                LstSectorNew = (List<View_SectoresEmpresariales>)oResultadoSector.ListaEntidadDatos;
+            }
+
+
+            return LstSectorNew;
         }
     }
 }

@@ -31,22 +31,22 @@ namespace Solucion_IDGI.Empresas {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl labelCollapse;
         
         /// <summary>
-        /// lblCliente control.
+        /// lblEmpresa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCliente;
+        protected global::System.Web.UI.WebControls.Label lblEmpresa;
         
         /// <summary>
-        /// txtCliente control.
+        /// txtEmpresa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCliente;
+        protected global::System.Web.UI.WebControls.TextBox txtEmpresa;
         
         /// <summary>
         /// lblNit control.
@@ -85,13 +85,22 @@ namespace Solucion_IDGI.Empresas {
         protected global::System.Web.UI.WebControls.Button btnLimpiar;
         
         /// <summary>
-        /// grdCliente control.
+        /// btnNuevo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdCliente;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnNuevo;
+        
+        /// <summary>
+        /// grdEmpresa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdEmpresa;
         
         /// <summary>
         /// lblNomTotReg control.

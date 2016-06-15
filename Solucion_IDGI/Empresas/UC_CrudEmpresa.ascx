@@ -126,7 +126,7 @@
                             CssClass="col-md-2 control-label">Pais</asp:Label>
                         <div class="col-md-10">
                             <asp:DropDownList ID="ddlPais" runat="server"
-                                DataTextField="Nom_Pais" DataValueField="Ide_Pais"
+                                DataTextField="Nom_Pais" DataValueField="Id_Pais"
                                 OnSelectedIndexChanged="ddlPais_SelectedIndexChanged"
                                 AutoPostBack="True" InitialValue="0"
                                 CssClass="dropdown-toggle">
@@ -142,7 +142,7 @@
                             CssClass="col-md-2 control-label">Departamento</asp:Label>
                         <div class="col-md-10">
                             <asp:DropDownList ID="ddlDepartamento" runat="server"
-                                DataTextField="Nom_Departamento" DataValueField="Ide_Departamento"
+                                DataTextField="Nom_Departamento" DataValueField="Id_Departamento"
                                 CssClass="dropdown-toggle" AutoPostBack="True" OnSelectedIndexChanged="ddlDepartamento_SelectedIndexChanged">
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator runat="server" InitialValue="0" Display="Dynamic"
@@ -165,16 +165,16 @@
                     </div>
                     <div class="form-group">
                         <asp:Label ID="lblSectorEmpresa" runat="server" AssociatedControlID="lisbxSectorEmpresa"
-                            CssClass="col-md-2 control-label">Tipo Servicio</asp:Label>
+                            CssClass="col-md-2 control-label">Sector Empresarial</asp:Label>
                         <div class="col-md-10" style="OVERFLOW-Y:scroll; WIDTH:600px; border:solid 1px #0088CF">
-                            <asp:CheckBoxList ID="lisbxSectorEmpresa" runat="server" DataValueField="Id_SectorEmpresa" Width="600px"
-                                DataTextField="Nom_SectorEmpresa" RepeatDirection="Vertical">
+                            <asp:CheckBoxList ID="lisbxSectorEmpresa" runat="server" DataValueField="Id_SectorEmpresarial" Width="600px"
+                                DataTextField="Nom_Sector" RepeatDirection="Vertical">
                             </asp:CheckBoxList>
                         </div>
                     </div>
                     <div class="form-group" id="Estado">
                         <asp:Label ID="lblEstado" runat="server" AssociatedControlID="lblSwitch"
-                            CssClass="col-md-2 control-label">Estado Cliente</asp:Label>
+                            CssClass="col-md-2 control-label">Estado Empresa</asp:Label>
                         <div class="col-md-10">
                             <label class="switch switch-flat" id="lblSwitch" runat="server">
                                 <input class="switch-input" type="checkbox" checked="checked" id="chkEstado" runat="server" />

@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Library.Encryption">
+      <HintPath>E:\EglobalSolutions\SmartServices\EGlobal_SmartServices\Libray\Library.Encryption.dll</HintPath>
+    </Reference>
     <Reference Include="Library.Exception, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libray\Library.Exception.dll</HintPath>
@@ -210,8 +213,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Empresas\FrmAdminEmpresa.aspx" />
-    <Content Include="Empresas\FrmCrudEmpresa.aspx" />
+    <Content Include="Empresas\frmAdminEmpresa.aspx" />
+    <Content Include="Empresas\frmCrudEmpresa.aspx">
+      <BrowseToURL>~/Empresas/frmCrudEmpresa.aspx</BrowseToURL>
+    </Content>
     <Content Include="Empresas\UC_CrudEmpresa.ascx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -412,19 +417,19 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Empresas\FrmAdminEmpresa.aspx.cs">
-      <DependentUpon>FrmAdminEmpresa.aspx</DependentUpon>
+    <Compile Include="Empresas\frmAdminEmpresa.aspx.cs">
+      <DependentUpon>frmAdminEmpresa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Empresas\FrmAdminEmpresa.aspx.designer.cs">
-      <DependentUpon>FrmAdminEmpresa.aspx</DependentUpon>
+    <Compile Include="Empresas\frmAdminEmpresa.aspx.designer.cs">
+      <DependentUpon>frmAdminEmpresa.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Empresas\FrmCrudEmpresa.aspx.cs">
-      <DependentUpon>FrmCrudEmpresa.aspx</DependentUpon>
+    <Compile Include="Empresas\frmCrudEmpresa.aspx.cs">
+      <DependentUpon>frmCrudEmpresa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Empresas\FrmCrudEmpresa.aspx.designer.cs">
-      <DependentUpon>FrmCrudEmpresa.aspx</DependentUpon>
+    <Compile Include="Empresas\frmCrudEmpresa.aspx.designer.cs">
+      <DependentUpon>frmCrudEmpresa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Empresas\UC_CrudEmpresa.ascx.cs">
       <DependentUpon>UC_CrudEmpresa.ascx</DependentUpon>
