@@ -202,51 +202,6 @@ namespace Solucion_IDGI.Empresas {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator rexTelfContacto;
         
         /// <summary>
-        /// lblCelContacto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCelContacto;
-        
-        /// <summary>
-        /// txtCelContacto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCelContacto;
-        
-        /// <summary>
-        /// revCelContacto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator revCelContacto;
-        
-        /// <summary>
-        /// cvCelContacto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvCelContacto;
-        
-        /// <summary>
-        /// rexCelContacto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rexCelContacto;
-        
-        /// <summary>
         /// lblDireccion control.
         /// </summary>
         /// <remarks>
@@ -418,22 +373,22 @@ namespace Solucion_IDGI.Empresas {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator revCiudad;
         
         /// <summary>
-        /// lblTipoServicio control.
+        /// lblSectorEmpresa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTipoServicio;
+        protected global::System.Web.UI.WebControls.Label lblSectorEmpresa;
         
         /// <summary>
-        /// lisbxTipoServicio control.
+        /// lisbxSectorEmpresa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList lisbxTipoServicio;
+        protected global::System.Web.UI.WebControls.CheckBoxList lisbxSectorEmpresa;
         
         /// <summary>
         /// lblEstado control.

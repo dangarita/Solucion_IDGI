@@ -30,7 +30,8 @@ namespace IDGI.Entities
         public string Correo_Empresa { get; set; }
         public string Telf_Empresa { get; set; }
         public string Nom_Contacto { get; set; }
-    
+        public string Dir_Empresa { get; set; }
+
         public virtual Tbl_Ciudad Tbl_Ciudad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_EmpresaGestor> Tbl_EmpresaGestor { get; set; }

@@ -82,26 +82,6 @@
 
                         </div>
                     </div>
-                    <div class="form-group" id="celContacto">
-                        <asp:Label ID="lblCelContacto" runat="server" AssociatedControlID="txtCelContacto"
-                            CssClass="col-md-2 control-label">Celular</asp:Label>
-                        <div class="col-md-10">
-                            <asp:TextBox ID="txtCelContacto" runat="server" MaxLength="12"
-                                onpaste="return false;" onkeypress="return numbersonly(event)"
-                                CssClass="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator runat="server" ID="revCelContacto" ValidationGroup="ValidarBuscarCliente"
-                                ControlToValidate="txtCelContacto" Display="Dynamic"
-                                CssClass="text-danger" ErrorMessage="Cambiar Mensaje" />
-                            <asp:CustomValidator ID="cvCelContacto" Display="Dynamic"
-                                runat="server" ControlToValidate="txtCelContacto"
-                                SetFocusOnError="True"></asp:CustomValidator>
-                            <asp:RegularExpressionValidator ID="rexCelContacto" runat="server"
-                                SetFocusOnError="True" CssClass="text-danger" Display="Dynamic"
-                                ControlToValidate="txtCelContacto" ValidationGroup="ValidarBuscarCliente"
-                                ValidationExpression=".{10}.*"></asp:RegularExpressionValidator>
-
-                        </div>
-                    </div>
                     <div class="form-group" id="Direccion">
                         <asp:Label ID="lblDireccion" runat="server" AssociatedControlID="txtDireccion"
                             CssClass="col-md-2 control-label">Dirección</asp:Label>
@@ -184,11 +164,11 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <asp:Label ID="lblTipoServicio" runat="server" AssociatedControlID="lisbxTipoServicio"
+                        <asp:Label ID="lblSectorEmpresa" runat="server" AssociatedControlID="lisbxSectorEmpresa"
                             CssClass="col-md-2 control-label">Tipo Servicio</asp:Label>
                         <div class="col-md-10" style="OVERFLOW-Y:scroll; WIDTH:600px; border:solid 1px #0088CF">
-                            <asp:CheckBoxList ID="lisbxTipoServicio" runat="server" DataValueField="Id_TipoServicio" Width="600px"
-                                DataTextField="Nom_TipoServicio" RepeatDirection="Vertical">
+                            <asp:CheckBoxList ID="lisbxSectorEmpresa" runat="server" DataValueField="Id_SectorEmpresa" Width="600px"
+                                DataTextField="Nom_SectorEmpresa" RepeatDirection="Vertical">
                             </asp:CheckBoxList>
                         </div>
                     </div>

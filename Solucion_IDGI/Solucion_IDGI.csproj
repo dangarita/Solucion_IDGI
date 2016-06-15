@@ -403,6 +403,7 @@
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\Base\ControllerBase.cs" />
+    <Compile Include="Controllers\Empresas\CrudEmpresa_Controller.cs" />
     <Compile Include="Controllers\Empresas\Empresa_Controller.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
