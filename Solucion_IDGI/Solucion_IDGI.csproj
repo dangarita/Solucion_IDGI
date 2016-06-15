@@ -428,6 +428,7 @@
   <ItemGroup>
     <Folder Include="Administracion\" />
     <Folder Include="App_Data\" />
+    <Folder Include="IDGI\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IDGI.CultureResource\IDGI.CultureResource.csproj">

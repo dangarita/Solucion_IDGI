@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IDGI.Entities
 {
-    public class Class1
+    class Class1
     {
     }
 }

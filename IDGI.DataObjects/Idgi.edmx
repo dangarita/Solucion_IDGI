@@ -59,6 +59,8 @@
           <Property Name="Nom_Empresa" Type="varchar" MaxLength="200" />
           <Property Name="Num_Personal" Type="int" />
           <Property Name="Id_Ciudad" Type="int" Nullable="false" />
+          <Property Name="Id_SectorEmpresarial" Type="int" />
+          <Property Name="Nit_Empresa" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="Tbl_EmpresaGestor">
           <Key>
@@ -119,6 +121,14 @@
           <Property Name="Id_Empresa" Type="int" Nullable="false" />
           <Property Name="Id_Gestor" Type="int" />
           <Property Name="Id_Pregunta" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_SectorEmpresarial">
+          <Key>
+            <PropertyRef Name="Id_SectorEmpresarial" />
+          </Key>
+          <Property Name="Id_SectorEmpresarial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_Sector" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="EstaActivo" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'DB_IDGI.dbo.View_Ciudad' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -237,6 +247,18 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
             </Principal>
             <Dependent Role="Tbl_Empresa">
               <PropertyRef Name="Id_Ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Empresa_Tbl_SectorEmpresarial">
+          <End Role="Tbl_SectorEmpresarial" Type="Self.Tbl_SectorEmpresarial" Multiplicity="0..1" />
+          <End Role="Tbl_Empresa" Type="Self.Tbl_Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_SectorEmpresarial">
+              <PropertyRef Name="Id_SectorEmpresarial" />
+            </Principal>
+            <Dependent Role="Tbl_Empresa">
+              <PropertyRef Name="Id_SectorEmpresarial" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -369,6 +391,7 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
           <EntitySet Name="Tbl_Pilar" EntityType="Self.Tbl_Pilar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Pregunta" EntityType="Self.Tbl_Pregunta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Respuesta" EntityType="Self.Tbl_Respuesta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_SectorEmpresarial" EntityType="Self.Tbl_SectorEmpresarial" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="View_Ciudad" EntityType="Self.View_Ciudad" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [View_Ciudad].[Id_Ciudad] AS [Id_Ciudad], 
@@ -421,6 +444,10 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
           </AssociationSet>
           <AssociationSet Name="FK_Tbl_Empresa_Tbl_Ciudad" Association="Self.FK_Tbl_Empresa_Tbl_Ciudad">
             <End Role="Tbl_Ciudad" EntitySet="Tbl_Ciudad" />
+            <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Empresa_Tbl_SectorEmpresarial" Association="Self.FK_Tbl_Empresa_Tbl_SectorEmpresarial">
+            <End Role="Tbl_SectorEmpresarial" EntitySet="Tbl_SectorEmpresarial" />
             <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
           </AssociationSet>
           <AssociationSet Name="FK_Tbl_EmpresaGestor_Tbl_Empresa" Association="Self.FK_Tbl_EmpresaGestor_Tbl_Empresa">
@@ -521,6 +548,9 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
           <NavigationProperty Name="Tbl_Ciudad" Relationship="Self.FK_Tbl_Empresa_Tbl_Ciudad" FromRole="Tbl_Empresa" ToRole="Tbl_Ciudad" />
           <NavigationProperty Name="Tbl_EmpresaGestor" Relationship="Self.FK_Tbl_EmpresaGestor_Tbl_Empresa" FromRole="Tbl_Empresa" ToRole="Tbl_EmpresaGestor" />
           <NavigationProperty Name="Tbl_Respuesta" Relationship="Self.FK_Tbl_Respuesta_Tbl_Empresa" FromRole="Tbl_Empresa" ToRole="Tbl_Respuesta" />
+          <Property Name="Id_SectorEmpresarial" Type="Int32" />
+          <Property Name="Nit_Empresa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_SectorEmpresarial" Relationship="DB_IDGIModel.FK_Tbl_Empresa_Tbl_SectorEmpresarial" FromRole="Tbl_Empresa" ToRole="Tbl_SectorEmpresarial" />
         </EntityType>
         <EntityType Name="Tbl_EmpresaGestor">
           <Key>
@@ -835,6 +865,11 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
           <EntitySet Name="View_Ciudad" EntityType="DB_IDGIModel.View_Ciudad" />
           <EntitySet Name="View_Departamento" EntityType="DB_IDGIModel.View_Departamento" />
           <EntitySet Name="View_Pais" EntityType="DB_IDGIModel.View_Pais" />
+          <EntitySet Name="Tbl_SectorEmpresarial" EntityType="DB_IDGIModel.Tbl_SectorEmpresarial" />
+          <AssociationSet Name="FK_Tbl_Empresa_Tbl_SectorEmpresarial" Association="DB_IDGIModel.FK_Tbl_Empresa_Tbl_SectorEmpresarial">
+            <End Role="Tbl_SectorEmpresarial" EntitySet="Tbl_SectorEmpresarial" />
+            <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -899,6 +934,27 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
           <Property Name="Id_Pais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nom_Pais" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Tbl_SectorEmpresarial">
+          <Key>
+            <PropertyRef Name="Id_SectorEmpresarial" />
+          </Key>
+          <Property Name="Id_SectorEmpresarial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Sector" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="EstaActivo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Tbl_Empresa" Relationship="DB_IDGIModel.FK_Tbl_Empresa_Tbl_SectorEmpresarial" FromRole="Tbl_SectorEmpresarial" ToRole="Tbl_Empresa" />
+        </EntityType>
+        <Association Name="FK_Tbl_Empresa_Tbl_SectorEmpresarial">
+          <End Type="DB_IDGIModel.Tbl_SectorEmpresarial" Role="Tbl_SectorEmpresarial" Multiplicity="0..1" />
+          <End Type="DB_IDGIModel.Tbl_Empresa" Role="Tbl_Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_SectorEmpresarial">
+              <PropertyRef Name="Id_SectorEmpresarial" />
+            </Principal>
+            <Dependent Role="Tbl_Empresa">
+              <PropertyRef Name="Id_SectorEmpresarial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -959,6 +1015,8 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
           <EntitySetMapping Name="Tbl_Empresa">
             <EntityTypeMapping TypeName="DB_IDGIModel.Tbl_Empresa">
               <MappingFragment StoreEntitySet="Tbl_Empresa">
+                <ScalarProperty Name="Nit_Empresa" ColumnName="Nit_Empresa" />
+                <ScalarProperty Name="Id_SectorEmpresarial" ColumnName="Id_SectorEmpresarial" />
                 <ScalarProperty Name="Id_Empresa" ColumnName="Id_Empresa" />
                 <ScalarProperty Name="Nom_Empresa" ColumnName="Nom_Empresa" />
                 <ScalarProperty Name="Num_Personal" ColumnName="Num_Personal" />
@@ -1096,6 +1154,15 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Preguntas' does not have a primar
               <MappingFragment StoreEntitySet="View_Pais">
                 <ScalarProperty Name="Nom_Pais" ColumnName="Nom_Pais" />
                 <ScalarProperty Name="Id_Pais" ColumnName="Id_Pais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_SectorEmpresarial">
+            <EntityTypeMapping TypeName="DB_IDGIModel.Tbl_SectorEmpresarial">
+              <MappingFragment StoreEntitySet="Tbl_SectorEmpresarial">
+                <ScalarProperty Name="EstaActivo" ColumnName="EstaActivo" />
+                <ScalarProperty Name="Nom_Sector" ColumnName="Nom_Sector" />
+                <ScalarProperty Name="Id_SectorEmpresarial" ColumnName="Id_SectorEmpresarial" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

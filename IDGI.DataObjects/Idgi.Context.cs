@@ -44,6 +44,7 @@ namespace IDGI.Entities
         public virtual DbSet<View_Ciudad> View_Ciudad { get; set; }
         public virtual DbSet<View_Departamento> View_Departamento { get; set; }
         public virtual DbSet<View_Pais> View_Pais { get; set; }
+        public virtual DbSet<Tbl_SectorEmpresarial> Tbl_SectorEmpresarial { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

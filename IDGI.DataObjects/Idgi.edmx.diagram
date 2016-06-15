@@ -33,6 +33,8 @@
         <EntityTypeShape EntityType="DB_IDGIModel.View_Ciudad" Width="1.5" PointX="9" PointY="3.5" />
         <EntityTypeShape EntityType="DB_IDGIModel.View_Departamento" Width="1.5" PointX="8.375" PointY="0.75" />
         <EntityTypeShape EntityType="DB_IDGIModel.View_Pais" Width="1.5" PointX="10.125" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_IDGIModel.Tbl_SectorEmpresarial" Width="1.5" PointX="5.375" PointY="0.875" />
+        <AssociationConnector Association="DB_IDGIModel.FK_Tbl_Empresa_Tbl_SectorEmpresarial" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
