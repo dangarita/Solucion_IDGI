@@ -5,6 +5,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div>
+        <br /><br />
         <uc1:UC_CrudEmpresa runat="server" id="UC_CrudEmpresa" />
     </div>
 </asp:Content>
