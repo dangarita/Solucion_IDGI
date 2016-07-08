@@ -1,5 +1,7 @@
 ﻿using IDGI.CultureResource;
 using IDGI.Entities;
+using Library.Utilidades;
+using Library.Utilidades.Enums;
 using Solucion_IDGI.Controllers;
 using System;
 using System.Collections.Generic;
@@ -35,8 +37,21 @@ namespace Solucion_IDGI.Empresas
         }
         #endregion
 
-        #region Eventos Formulario
+        #region Eventos Controles
+        protected void ddlPais_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlPais.SelectedIndex > 0)
+            {
+                ObtenerDepartamentos();                
+            }
+        }
 
+       
+
+        protected void ddlDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
         #endregion
 
         #region CRUD
@@ -44,6 +59,38 @@ namespace Solucion_IDGI.Empresas
         #endregion
 
         #region Metodos
+        private string sMuestraMensajeError
+        {
+            set
+            {
+                string sTitulo = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "TituloModalMensajes");
+                General.MuestraMensaje(sTitulo, value, TipoMensajeWeb.Error, null, Page);
+            }
+        }
+        private void ObtenerDepartamentos()
+        {
+            ddlDepartamento.Items.Clear();
+            int idPais = Convert.ToInt32(ddlPais.SelectedValue.ToString());
+
+            ResultadoOperacion oResultadoDpto = _CrudEmpresa_Controller.ObtenerListDpto(idPais);
+            if (oResultadoDpto.oEstado == TipoRespuesta.Exito)
+            {
+                List<View_Departamento> lstDpto = (List<View_Departamento>)oResultadoDpto.ListaEntidadDatos;
+
+                View_Departamento objDpto = new View_Departamento();
+                objDpto.Id_Departamento = 0;
+                objDpto.Nom_Departamento = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_MensajeSeleccion");
+                lstDpto.Insert(0, objDpto);
+
+                ddlDepartamento.DataSource = lstDpto;
+                ddlDepartamento.DataBind();
+            }
+            else
+            {
+                sMuestraMensajeError = oResultadoDpto.Mensaje;
+            }
+            
+        }
         private void CargarListas()
         {
             List<View_Pais> lstPais = _CrudEmpresa_Controller.ObtenerListaPais();
@@ -62,16 +109,8 @@ namespace Solucion_IDGI.Empresas
 
         #endregion
 
-        protected void ddlPais_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void ddlDepartamento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 
         
-    }
+}

@@ -9,6 +9,7 @@ namespace Solucion_IDGI.Empresas
 {
     public partial class frmCrudEmpresa : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
 

@@ -25,18 +25,19 @@ namespace Solucion_IDGI.Controllers
             return LstpaisNew;
         }
 
-        public List<View_Departamento> ObtenerListDpto(int idSector)
+        public ResultadoOperacion ObtenerListDpto(int idPais)
         {
             List<View_Departamento> LstDptoNew = new List<View_Departamento>();
 
-            ResultadoOperacion oResultadoSector = _Model.ObtenerListaDptos(idSector);
+            ResultadoOperacion oResultadoDpto = _Model.ObtenerListaDptos(idPais);
 
-            if (oResultadoSector.oEstado == TipoRespuesta.Exito)
+            if (oResultadoDpto.oEstado == TipoRespuesta.Exito)
             {
-                LstDptoNew = (List<View_Departamento>)oResultadoSector.ListaEntidadDatos;
+                LstDptoNew = (List<View_Departamento>)oResultadoDpto.ListaEntidadDatos;
+                oResultadoDpto.ListaEntidadDatos = LstDptoNew;
             }
 
-            return LstDptoNew;
+            return oResultadoDpto;
         }
 
         public List<View_Ciudad> ObtenerListCiudad(int idDpto)
@@ -66,6 +67,11 @@ namespace Solucion_IDGI.Controllers
 
 
             return LstSectorNew;
+        }
+
+        public ResultadoOperacion InsertarEmpresa(Tbl_Empresa Empresa)
+        {
+            return _Model.InsertarEmpresa(Empresa);
         }
     }
 }

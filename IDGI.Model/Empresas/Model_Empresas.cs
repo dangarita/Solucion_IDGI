@@ -4,12 +4,38 @@ using IDGI.DataObjects;
 using Library.Utilidades.Enums;
 using Library.Exception;
 using IDGI.CultureResource;
+using IDGI.Entities;
 
 namespace IDGI.Model
 {
     public partial class Model : IModel
     {
         private EmpresasDAO objEmpDao;
+
+        public ResultadoOperacion InsertarEmpresa(Tbl_Empresa Empresa)
+        {
+            ResultadoOperacion oResultadoInsEmpresa = new ResultadoOperacion();
+
+            try
+            {
+                objEmpDao.InsertarEmpresa(Empresa);
+                oResultadoInsEmpresa.oEstado = TipoRespuesta.Exito;
+                oResultadoInsEmpresa.Mensaje= Multilanguage.GetResourceManagerMultilingual("ResGeneral", "General_Msj_InsercionOK");
+            }
+            catch (Exception ex)
+            {
+                oResultadoInsEmpresa.oEstado = TipoRespuesta.Error;
+                oResultadoInsEmpresa.Mensaje = ex.Message;
+
+                string sMensajeError = Multilanguage.GetResourceManagerMultilingual("ResGeneral", "General_Err_InsertBd");
+                sMensajeError = sMensajeError + ex.Message;
+
+                throw new DataBaseException(Globales.NombreAplicacion.ToUpper(), sMensajeError, new Exception(sMensajeError));
+            }
+
+            return oResultadoInsEmpresa;
+        }
+
         public ResultadoOperacion ObtenerListaCiudad(int idDpto)
         {
             ResultadoOperacion oResultadoListaCiudad = new ResultadoOperacion();
@@ -43,18 +69,16 @@ namespace IDGI.Model
             {
                 objEmpDao = new EmpresasDAO();
 
-                oResultadoListaDpto.ListaEntidadDatos = objEmpDao.ObtenerListaDpto(idPais);
+                oResultadoListaDpto = objEmpDao.ObtenerListaDpto(idPais);
             }
             catch (Exception ex)
             {
                 oResultadoListaDpto.oEstado = TipoRespuesta.Error;
-                oResultadoListaDpto.Mensaje = ex.Message;
 
                 string sMensajeError = Multilanguage.GetResourceManagerMultilingual("ResGeneral", "General_MensajeErrorDpto");
-                sMensajeError = sMensajeError + ex.Message;
+                sMensajeError = sMensajeError + ": " + ex.Message;
 
-                throw new DataBaseException(Globales.NombreAplicacion.ToUpper(), sMensajeError, new Exception(sMensajeError));
-
+                oResultadoListaDpto.Mensaje = sMensajeError;
             }
 
             return oResultadoListaDpto;

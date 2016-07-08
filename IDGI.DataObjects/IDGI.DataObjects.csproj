@@ -38,6 +38,12 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Library.Exception">
+      <HintPath>..\Libray\Library.Exception.dll</HintPath>
+    </Reference>
+    <Reference Include="Library.Utilidades">
+      <HintPath>E:\EglobalSolutions\SmartServices\EGlobal_SmartServices\Libray\Library.Utilidades.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -81,6 +87,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IDGI.CultureResource\IDGI.CultureResource.csproj">
+      <Project>{c7001a3f-109c-4e82-84c7-57d72f5cdca7}</Project>
+      <Name>IDGI.CultureResource</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IDGI.Entities\IDGI.Entities.csproj">
       <Project>{5c9955fb-7702-486d-b7b4-98b21b7b8a73}</Project>
       <Name>IDGI.Entities</Name>
