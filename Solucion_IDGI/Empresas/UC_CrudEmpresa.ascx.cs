@@ -102,6 +102,12 @@ namespace Solucion_IDGI.Empresas
 
             ddlPais.DataSource = lstPais;
             ddlPais.DataBind();
+
+            List<View_SectoresEmpresariales> lstSectores = _CrudEmpresa_Controller.ObtenerListaSectores();
+
+            lisbxSectorEmpresa.DataSource = lstSectores;
+            lisbxSectorEmpresa.DataBind();
+
         }
         #endregion
 
