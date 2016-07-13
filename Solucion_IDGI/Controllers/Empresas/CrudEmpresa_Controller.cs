@@ -40,18 +40,19 @@ namespace Solucion_IDGI.Controllers
             return oResultadoDpto;
         }
 
-        public List<View_Ciudad> ObtenerListCiudad(int idDpto)
+        public ResultadoOperacion ObtenerListCiudad(int idDpto)
         {
             List<View_Ciudad> LstCiudadNew = new List<View_Ciudad>();
 
-            ResultadoOperacion oResultadoSector = _Model.ObtenerListaCiudad(idDpto);
+            ResultadoOperacion oResultadoCiudad = _Model.ObtenerListaCiudad(idDpto);
 
-            if (oResultadoSector.oEstado == TipoRespuesta.Exito)
+            if (oResultadoCiudad.oEstado == TipoRespuesta.Exito)
             {
-                LstCiudadNew = (List<View_Ciudad>)oResultadoSector.ListaEntidadDatos;
+                LstCiudadNew = (List<View_Ciudad>)oResultadoCiudad.ListaEntidadDatos;
+                oResultadoCiudad.ListaEntidadDatos = LstCiudadNew;
             }
 
-            return LstCiudadNew;
+            return oResultadoCiudad;
         }
 
         public List<View_SectoresEmpresariales> ObtenerListaSectores()

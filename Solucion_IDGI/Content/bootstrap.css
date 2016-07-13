@@ -2223,9 +2223,9 @@ textarea.input-lg {
     }
 
 .btn-default {
-    color: #333333;
-    background-color: #ffffff;
-    border-color: #cccccc;
+  color: #FFF;
+  background-color: #0088CF;
+  border-color: #004C72;
 }
 
     .btn-default:hover,

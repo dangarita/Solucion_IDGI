@@ -48,18 +48,19 @@ namespace IDGI.DataObjects
             List<View_Ciudad> lstCiudad = new List<View_Ciudad>();
             using (DB_IDGIEntities db = new DB_IDGIEntities())
             {
-                lstCiudad = (from obj in db.View_Ciudad
-                             where obj.Id_Departamento == IdDpto
-                             select new View_Ciudad
-                             {
-                                 Id_Ciudad = obj.Id_Ciudad,
-                                 Id_Departamento = obj.Id_Departamento,
-                                 Nom_Ciudad = obj.Nom_Ciudad
-                             }).ToList();
-
+                lstCiudad = db.View_Ciudad.ToList();
             }
+            List<View_Ciudad> lstCiudadNew = new List<View_Ciudad>();
+            lstCiudadNew = (from obj in lstCiudad
+                            where obj.Id_Departamento == IdDpto
+                         select new View_Ciudad
+                         {
+                             Id_Ciudad = obj.Id_Ciudad,
+                             Id_Departamento = obj.Id_Departamento,
+                             Nom_Ciudad = obj.Nom_Ciudad
+                         }).ToList();
 
-            return lstCiudad;
+            return lstCiudadNew;
         }
 
         public List<View_SectoresEmpresariales> ObtenerListaSectores()
@@ -73,13 +74,13 @@ namespace IDGI.DataObjects
 
         }
 
-        public async void InsertarEmpresa(Tbl_Empresa Empresa)
+        public void InsertarEmpresa(Tbl_Empresa Empresa)
         {
-            int IdEmpresa = 0;
+            
             using (DB_IDGIEntities db = new DB_IDGIEntities())
             {
                 db.Tbl_Empresa.Add(Empresa);
-                int x = await db.SaveChangesAsync();
+                db.SaveChanges();
             }
         }
     }
