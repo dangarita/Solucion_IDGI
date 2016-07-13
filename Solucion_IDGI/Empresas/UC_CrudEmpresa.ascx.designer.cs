@@ -112,6 +112,51 @@ namespace Solucion_IDGI.Empresas {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator rexNit;
         
         /// <summary>
+        /// lblNumPersonal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumPersonal;
+        
+        /// <summary>
+        /// txtNumPersonal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNumPersonal;
+        
+        /// <summary>
+        /// revNumPersonal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator revNumPersonal;
+        
+        /// <summary>
+        /// cvNumPersonal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvNumPersonal;
+        
+        /// <summary>
+        /// rexNumPersonal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rexNumPersonal;
+        
+        /// <summary>
         /// lblNomContacto control.
         /// </summary>
         /// <remarks>

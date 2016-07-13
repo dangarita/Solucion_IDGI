@@ -48,6 +48,27 @@
             </div>
             <br />
             <br />
+            <div class="form-group" id="NumPersonal">
+                <asp:Label ID="lblNumPersonal" runat="server" AssociatedControlID="txtNumPersonal"
+                    CssClass="col-md-2 control-label">Número de colaboradores</asp:Label>
+                <div class="col-md-10">
+                    <asp:TextBox ID="txtNumPersonal" runat="server" MaxLength="15"
+                        onkeypress="return numbersonly(event)" onpaste="return false;"
+                        CssClass="form-control"></asp:TextBox>
+                    <asp:RequiredFieldValidator runat="server" ID="revNumPersonal" ValidationGroup="ValidarCRUDEmpresa"
+                        ControlToValidate="txtNumPersonal" Display="Dynamic"
+                        CssClass="text-danger" ErrorMessage="NumPersonal Obligatorio" />
+                    <asp:CustomValidator ID="cvNumPersonal"
+                        runat="server" ControlToValidate="txtNumPersonal" Display="None"
+                        SetFocusOnError="True"></asp:CustomValidator>
+                    <asp:RegularExpressionValidator ID="rexNumPersonal" runat="server"
+                        SetFocusOnError="True" CssClass="text-danger"
+                        ControlToValidate="txtNumPersonal" ValidationGroup="ValidarCRUDEmpresa"
+                        ValidationExpression=".{6}.*"></asp:RegularExpressionValidator>
+                </div>
+            </div>
+            <br />
+            <br />
             <div class="form-group" id="NomContatco">
                 <asp:Label ID="lblNomContacto" runat="server" AssociatedControlID="txtNomContacto"
                     CssClass="col-md-2 control-label">Contacto</asp:Label>

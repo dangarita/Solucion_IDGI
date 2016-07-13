@@ -57,6 +57,7 @@ namespace Solucion_IDGI.Empresas
                 oEmpresa.Dir_Empresa = txtDireccion.Text;
                 oEmpresa.Correo_Empresa = txtCorreo.Text;
                 oEmpresa.Id_Ciudad = int.Parse(ddlCiudad.SelectedValue);
+                oEmpresaNew.Num_Personal = int.Parse(txtNumPersonal.Text);
                 oEmpresa.Id_SectorEmpresarial = int.Parse(lisbxSectorEmpresa.SelectedValue);
                 
                 return oEmpresa;
