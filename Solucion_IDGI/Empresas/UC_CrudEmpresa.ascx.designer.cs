@@ -13,13 +13,13 @@ namespace Solucion_IDGI.Empresas {
     public partial class UC_CrudEmpresa {
         
         /// <summary>
-        /// UpdatePanel_Datos control.
+        /// UpdatePanel_Base control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel_Datos;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel_Base;
         
         /// <summary>
         /// lblEmpresa control.
@@ -373,24 +373,6 @@ namespace Solucion_IDGI.Empresas {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator revCiudad;
         
         /// <summary>
-        /// lblSectorEmpresa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSectorEmpresa;
-        
-        /// <summary>
-        /// lisbxSectorEmpresa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList lisbxSectorEmpresa;
-        
-        /// <summary>
         /// lblEstado control.
         /// </summary>
         /// <remarks>
@@ -425,5 +407,23 @@ namespace Solucion_IDGI.Empresas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl spanActivo;
+        
+        /// <summary>
+        /// lblSectorEmpresa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSectorEmpresa;
+        
+        /// <summary>
+        /// lisbxSectorEmpresa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList lisbxSectorEmpresa;
     }
 }

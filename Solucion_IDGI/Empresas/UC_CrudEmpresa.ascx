@@ -1,5 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UC_CrudEmpresa.ascx.cs" Inherits="Solucion_IDGI.Empresas.UC_CrudEmpresa" %>
-<asp:UpdatePanel ID="UpdatePanel_Datos" runat="server" ChildrenAsTriggers="False" UpdateMode="Conditional" RenderMode="Inline">
+<asp:UpdatePanel ID="UpdatePanel_Base" runat="server" 
+    ChildrenAsTriggers="False" UpdateMode="Conditional" RenderMode="Inline"
+    OnLoad="UpdatePanel_Datos_Load">
     <ContentTemplate>
         <div class="row">
             <div class="form-group" id="Cliente">
@@ -172,16 +174,6 @@
                 </div>
             </div>
             <br /><br />
-            <div class="form-group">
-                <asp:Label ID="lblSectorEmpresa" runat="server" AssociatedControlID="lisbxSectorEmpresa"
-                    CssClass="col-md-2 control-label">Sector Empresarial</asp:Label>
-                <div class="col-md-10" style="overflow-y: scroll; width: 600px; border: solid 1px #0088CF">
-                    <asp:CheckBoxList ID="lisbxSectorEmpresa" runat="server" DataValueField="Id_SectorEmpresarial" Width="600px"
-                        DataTextField="Nom_Sector" RepeatDirection="Vertical">
-                    </asp:CheckBoxList>
-                </div>
-            </div>
-            <br /><br />
             <div class="form-group" id="Estado">
                 <asp:Label ID="lblEstado" runat="server" AssociatedControlID="lblSwitch"
                     CssClass="col-md-2 control-label">Estado Empresa</asp:Label>
@@ -191,6 +183,16 @@
                         <span class="switch-label" data-on="On" data-off="Off" id="spanActivo" runat="server"></span>
                         <span class="switch-handle"></span>
                     </label>
+                </div>
+            </div>
+            <br /><br />
+            <div class="form-group">
+                <asp:Label ID="lblSectorEmpresa" runat="server" AssociatedControlID="lisbxSectorEmpresa"
+                    CssClass="col-md-2 control-label">Sector Empresarial</asp:Label>
+                <div class="col-md-10" style="overflow-y: scroll; width: 600px; border: solid 1px #0088CF">
+                    <asp:CheckBoxList ID="lisbxSectorEmpresa" runat="server" DataValueField="Id_SectorEmpresarial" Width="600px"
+                        DataTextField="Nom_Sector" RepeatDirection="Vertical">
+                    </asp:CheckBoxList>
                 </div>
             </div>
             <br /><br />

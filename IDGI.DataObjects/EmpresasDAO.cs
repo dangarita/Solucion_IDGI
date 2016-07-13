@@ -23,28 +23,22 @@ namespace IDGI.DataObjects
         {
             List<View_Departamento> lstDpto = new List<View_Departamento>();
             ResultadoOperacion oResultadoListaDpto = new ResultadoOperacion();
-            try
+            using (DB_IDGIEntities db = new DB_IDGIEntities())
             {
-                using (DB_IDGIEntities db = new DB_IDGIEntities())
-                {
-                    lstDpto = (from obj in db.View_Departamento
-                               where obj.Id_Pais == idPais
-                               select new View_Departamento
-                               {
-                                   Id_Pais = obj.Id_Pais,
-                                   Id_Departamento = obj.Id_Departamento,
-                                   Nom_Departamento = obj.Nom_Departamento
-                               }).ToList();
-
-                    oResultadoListaDpto.ListaEntidadDatos = lstDpto;
-
-                }
+                lstDpto = db.View_Departamento.ToList();                
             }
-            catch (Exception ex)
-            {
-                throw new DataBaseException(Globales.NombreAplicacion.ToUpper(), ex.Message, new Exception(ex.Message));
-            }
-            
+
+            List<View_Departamento> lstDptoFiltro = new List<View_Departamento>();
+            lstDptoFiltro = (from obj in lstDpto
+                       where obj.Id_Pais == idPais
+                       select new View_Departamento
+                       {
+                           Id_Pais = obj.Id_Pais,
+                           Id_Departamento = obj.Id_Departamento,
+                           Nom_Departamento = obj.Nom_Departamento
+                       }).ToList();
+
+            oResultadoListaDpto.ListaEntidadDatos = lstDptoFiltro;
 
             return oResultadoListaDpto;
         }
@@ -74,15 +68,9 @@ namespace IDGI.DataObjects
 
             using (DB_IDGIEntities db = new DB_IDGIEntities())
             {
-                lstSectores = (from obj in db.View_SectoresEmpresariales
-                             select new View_SectoresEmpresariales
-                             {
-                                 Id_SectorEmpresarial = obj.Id_SectorEmpresarial,
-                                 Nom_Sector = obj.Nom_Sector
-                             }).ToList();
+                return db.View_SectoresEmpresariales.ToList();
             }
 
-                return lstSectores;
         }
 
         public async void InsertarEmpresa(Tbl_Empresa Empresa)

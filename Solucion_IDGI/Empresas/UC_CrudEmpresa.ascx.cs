@@ -25,6 +25,17 @@ namespace Solucion_IDGI.Empresas
                 return ViewState["_CrudEmpresa_Controller"] as CrudEmpresa_Controller;
             }
         }
+        private OperacionCRUD _OperacionCRUD
+        {
+            get
+            {
+                return (ViewState["_OperacionCRUD"] == null) ? 0 : (OperacionCRUD)ViewState["_OperacionCRUD"];
+            }
+            set
+            {
+                ViewState["_OperacionCRUD"] = value;
+            }
+        }
         #endregion
 
         #region Eventos Pagina
@@ -42,7 +53,12 @@ namespace Solucion_IDGI.Empresas
         {
             if (ddlPais.SelectedIndex > 0)
             {
-                ObtenerDepartamentos();                
+                if (_OperacionCRUD != OperacionCRUD.Consultar)
+                {
+                    ddlDepartamento.Enabled = true;
+                }
+                ObtenerDepartamentos();
+                ddlDepartamento.Focus();               
             }
         }
 
@@ -89,7 +105,9 @@ namespace Solucion_IDGI.Empresas
             {
                 sMuestraMensajeError = oResultadoDpto.Mensaje;
             }
+
             
+
         }
         private void CargarListas()
         {
@@ -109,13 +127,17 @@ namespace Solucion_IDGI.Empresas
             lisbxSectorEmpresa.DataBind();
 
         }
+
         #endregion
 
         #region Botones Principales
 
         #endregion
 
-       
+        protected void UpdatePanel_Datos_Load(object sender, EventArgs e)
+        {
+            UpdatePanel_Base.Update();
+        }
     }
 
         
