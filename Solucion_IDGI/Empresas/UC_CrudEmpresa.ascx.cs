@@ -6,6 +6,7 @@ using Solucion_IDGI.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -57,7 +58,7 @@ namespace Solucion_IDGI.Empresas
                 oEmpresa.Dir_Empresa = txtDireccion.Text;
                 oEmpresa.Correo_Empresa = txtCorreo.Text;
                 oEmpresa.Id_Ciudad = int.Parse(ddlCiudad.SelectedValue);
-                oEmpresaNew.Num_Personal = int.Parse(txtNumPersonal.Text);
+                oEmpresa.Num_Personal = int.Parse(txtNumPersonal.Text);
                 oEmpresa.Id_SectorEmpresarial = int.Parse(lisbxSectorEmpresa.SelectedValue);
                 
                 return oEmpresa;
@@ -192,6 +193,26 @@ namespace Solucion_IDGI.Empresas
             if (_OperacionCRUD == OperacionCRUD.Nuevo)
             {
                 oResultadoCRUD = _CrudEmpresa_Controller.InsertarEmpresa(oEmpresaNew);
+
+                if (oResultadoCRUD.oEstado == TipoRespuesta.Exito)
+                {
+                    string sMensaje = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_Msj_InsercionOK");
+                    string url = "frmAdminEmpresa.aspx";
+
+                    StringBuilder sbAlert = new StringBuilder();
+
+                    sbAlert.Append("alert('");
+                    sbAlert.Append(sMensaje);
+                    sbAlert.Append("');document.location.href ='");
+                    sbAlert.Append(url);
+                    sbAlert.Append("';");
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", sbAlert.ToString(), true);
+                }
+                else
+                {
+                    sMuestraMensajeError = oResultadoCRUD.Mensaje;
+                }
             }
         }
         #endregion

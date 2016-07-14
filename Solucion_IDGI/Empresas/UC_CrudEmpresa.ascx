@@ -10,70 +10,67 @@
                 <div class="col-md-10">
                     <asp:TextBox ID="txtEmpresa" runat="server"
                         onpaste="return false;"
-                        CssClass="form-control" MaxLength="100"></asp:TextBox>
+                        CssClass="form-control" MaxLength="200"></asp:TextBox>
                     <asp:RequiredFieldValidator runat="server" ID="revEmpresa" ValidationGroup="ValidarCRUDEmpresa"
                         ControlToValidate="txtEmpresa" Display="Dynamic"
                         CssClass="text-danger" ErrorMessage="La empresa es obligatorio." />
                     <asp:CustomValidator ID="cvEmpresa" ValidationGroup="ValidarBuscarEmpresa"
                         runat="server" ControlToValidate="txtEmpresa"
-                        CssClass="text-danger"
+                        CssClass="text-danger" ErrorMessage="Custom"
                         SetFocusOnError="True"></asp:CustomValidator>
                     <asp:RegularExpressionValidator ID="rexEmpresa" runat="server"
                         SetFocusOnError="True" CssClass="text-danger"
-                        ControlToValidate="txtEmpresa" ValidationGroup="ValidarBuscarEmpresa"
+                        ControlToValidate="txtEmpresa" ValidationGroup="ValidarBuscarEmpresa" ErrorMessage="Minimo 3 caracteres"
                         ValidationExpression=".{3}.*"></asp:RegularExpressionValidator>
                 </div>
             </div>
-            <br />
-            <br />
+            <br /><br />
             <div class="form-group" id="Nit">
                 <asp:Label ID="lblNit" runat="server" AssociatedControlID="txtNit"
                     CssClass="col-md-2 control-label">Nit</asp:Label>
                 <div class="col-md-10">
-                    <asp:TextBox ID="txtNit" runat="server" MaxLength="15"
+                    <asp:TextBox ID="txtNit" runat="server" MaxLength="20"
                         onkeypress="return numbersonly(event)" onpaste="return false;"
                         CssClass="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator runat="server" ID="revNit" ValidationGroup="ValidarCRUDEmpresa"
                         ControlToValidate="txtNit" Display="Dynamic"
                         CssClass="text-danger" ErrorMessage="Nit Obligatorio" />
-                    <asp:CustomValidator ID="cvNit"
+                    <asp:CustomValidator ID="cvNit" ErrorMessage="Custom"
                         runat="server" ControlToValidate="txtNit" Display="None"
                         SetFocusOnError="True"></asp:CustomValidator>
                     <asp:RegularExpressionValidator ID="rexNit" runat="server"
-                        SetFocusOnError="True" CssClass="text-danger"
+                        SetFocusOnError="True" CssClass="text-danger" ErrorMessage="Minimo 6 caracteres"
                         ControlToValidate="txtNit" ValidationGroup="ValidarCRUDEmpresa"
                         ValidationExpression=".{6}.*"></asp:RegularExpressionValidator>
 
                 </div>
             </div>
-            <br />
-            <br />
+            <br /><br />
             <div class="form-group" id="NumPersonal">
                 <asp:Label ID="lblNumPersonal" runat="server" AssociatedControlID="txtNumPersonal"
                     CssClass="col-md-2 control-label">Número de colaboradores</asp:Label>
                 <div class="col-md-10">
-                    <asp:TextBox ID="txtNumPersonal" runat="server" MaxLength="15"
+                    <asp:TextBox ID="txtNumPersonal" runat="server" MaxLength="7"
                         onkeypress="return numbersonly(event)" onpaste="return false;"
                         CssClass="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator runat="server" ID="revNumPersonal" ValidationGroup="ValidarCRUDEmpresa"
                         ControlToValidate="txtNumPersonal" Display="Dynamic"
                         CssClass="text-danger" ErrorMessage="NumPersonal Obligatorio" />
                     <asp:CustomValidator ID="cvNumPersonal"
-                        runat="server" ControlToValidate="txtNumPersonal" Display="None"
+                        runat="server" ControlToValidate="txtNumPersonal" Display="None" ErrorMessage="Custom"
                         SetFocusOnError="True"></asp:CustomValidator>
                     <asp:RegularExpressionValidator ID="rexNumPersonal" runat="server"
                         SetFocusOnError="True" CssClass="text-danger"
-                        ControlToValidate="txtNumPersonal" ValidationGroup="ValidarCRUDEmpresa"
-                        ValidationExpression=".{6}.*"></asp:RegularExpressionValidator>
+                        ControlToValidate="txtNumPersonal" ValidationGroup="ValidarCRUDEmpresa" ErrorMessage="Minimo 1 caracteres"
+                        ValidationExpression=".{1}.*"></asp:RegularExpressionValidator>
                 </div>
             </div>
-            <br />
-            <br />
+            <br /><br />
             <div class="form-group" id="NomContatco">
                 <asp:Label ID="lblNomContacto" runat="server" AssociatedControlID="txtNomContacto"
                     CssClass="col-md-2 control-label">Contacto</asp:Label>
                 <div class="col-md-10">
-                    <asp:TextBox ID="txtNomContacto" runat="server" MaxLength="100"
+                    <asp:TextBox ID="txtNomContacto" runat="server" MaxLength="200"
                         onpaste="return false;" onkeypress="return soloLetras(event)" onblur="limpia()"
                         CssClass="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator runat="server"
@@ -81,60 +78,57 @@
                         ControlToValidate="txtNomContacto" Display="Dynamic"
                         CssClass="text-danger" ErrorMessage="El Contacto es obligatorio." />
                     <asp:CustomValidator ID="cvNomContacto"
-                        runat="server" ControlToValidate="txtNomContacto" Display="None"
+                        runat="server" ControlToValidate="txtNomContacto" Display="None" ErrorMessage="Custom"
                         SetFocusOnError="True"></asp:CustomValidator>
                     <asp:RegularExpressionValidator ID="rexNomContacto" runat="server"
                         SetFocusOnError="True" CssClass="text-danger"
                         ControlToValidate="txtNomContacto" ValidationGroup="ValidarCRUDEmpresa"
-                        ValidationExpression=".{3}.*"></asp:RegularExpressionValidator>
+                        ValidationExpression=".{3}.*" ErrorMessage="Minimo 3 caracteres" ></asp:RegularExpressionValidator>
                 </div>
             </div>
-            <br />
-            <br />
+            <br /><br />
             <div class="form-group" id="TelfContacto">
                 <asp:Label ID="lblTelfContacto" runat="server" AssociatedControlID="txtTelfContacto"
                     CssClass="col-md-2 control-label">Teléfono</asp:Label>
                 <div class="col-md-10">
-                    <asp:TextBox ID="txtTelfContacto" runat="server" MaxLength="20"
+                    <asp:TextBox ID="txtTelfContacto" runat="server" MaxLength="10"
                         onpaste="return false;" onkeypress="return numbersonly(event)"
                         CssClass="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator runat="server" ID="revTelfContacto" ValidationGroup="ValidarCRUDEmpresa"
                         ControlToValidate="txtTelfContacto" Display="Dynamic"
                         CssClass="text-danger" ErrorMessage="Télefono Obligatorio" />
                     <asp:CustomValidator ID="cvTelfContacto" Display="Dynamic"
-                        runat="server" ControlToValidate="txtTelfContacto"
+                        runat="server" ControlToValidate="txtTelfContacto" ErrorMessage="Custom"
                         SetFocusOnError="True"></asp:CustomValidator>
                     <asp:RegularExpressionValidator ID="rexTelfContacto" runat="server"
                         SetFocusOnError="True" CssClass="text-danger" Display="Dynamic"
-                        ControlToValidate="txtTelfContacto" ValidationGroup="ValidarCRUDEmpresa"
+                        ControlToValidate="txtTelfContacto" ValidationGroup="ValidarCRUDEmpresa" ErrorMessage="Minimo 7 caracteres"
                         ValidationExpression=".{7}.*"></asp:RegularExpressionValidator>
 
                 </div>
             </div>
-            <br />
-            <br />
+            <br /><br />
             <div class="form-group" id="Direccion">
                 <asp:Label ID="lblDireccion" runat="server" AssociatedControlID="txtDireccion"
                     CssClass="col-md-2 control-label">Dirección</asp:Label>
                 <div class="col-md-10">
-                    <asp:TextBox ID="txtDireccion" runat="server" MaxLength="100"
+                    <asp:TextBox ID="txtDireccion" runat="server" MaxLength="250"
                         onpaste="return false;"
                         CssClass="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator runat="server" ID="revDireccion" ValidationGroup="ValidarCRUDEmpresa"
                         ControlToValidate="txtDireccion" Display="Dynamic"
                         CssClass="text-danger" ErrorMessage="Dirección Obliatoria" />
                     <asp:CustomValidator ID="cvDireccion" Display="Dynamic"
-                        runat="server" ControlToValidate="txtDireccion"
+                        runat="server" ControlToValidate="txtDireccion" ErrorMessage="Custom"
                         SetFocusOnError="True"></asp:CustomValidator>
                     <asp:RegularExpressionValidator ID="rexDireccion" runat="server"
                         SetFocusOnError="True" CssClass="text-danger" Display="Dynamic"
-                        ControlToValidate="txtDireccion" ValidationGroup="ValidarCRUDEmpresa"
+                        ControlToValidate="txtDireccion" ValidationGroup="ValidarCRUDEmpresa" ErrorMessage="Minimo 6 caracteres"
                         ValidationExpression=".{6}.*"></asp:RegularExpressionValidator>
 
                 </div>
             </div>
-            <br />
-            <br />
+            <br /><br />
             <div class="form-group" id="Correo">
                 <asp:Label ID="lblCorreo" runat="server" AssociatedControlID="txtCorreo"
                     CssClass="col-md-2 control-label">Correo</asp:Label>
@@ -147,15 +141,14 @@
                         CssClass="text-danger" ErrorMessage="El Correo es obligatorio." />
                     <asp:RegularExpressionValidator ID="rexCorreo" runat="server"
                         SetFocusOnError="True" CssClass="text-danger" Display="Dynamic"
-                        ControlToValidate="txtCorreo" ValidationGroup="ValidarCRUDEmpresa"
-                        ValidationExpression=".{6}.*"></asp:RegularExpressionValidator>
+                        ControlToValidate="txtCorreo" ValidationGroup="ValidarCRUDEmpresa" ErrorMessage="Correo invalido"
+                        ValidationExpression="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"></asp:RegularExpressionValidator>
                     <asp:CustomValidator ID="cvCorreo" Display="Dynamic"
-                        runat="server" ControlToValidate="txtCorreo"
+                        runat="server" ControlToValidate="txtCorreo" ErrorMessage="Custom"
                         SetFocusOnError="True"></asp:CustomValidator>
                 </div>
             </div>
-            <br />
-            <br />
+            <br /><br />
             <div class="form-group" id="Pais">
                 <asp:Label ID="lblPais" runat="server" AssociatedControlID="ddlPais"
                     CssClass="col-md-2 control-label">Pais</asp:Label>
@@ -172,8 +165,7 @@
                         CssClass="text-danger" ErrorMessage="El Pais es obligatorio." />
                 </div>
             </div>
-            <br />
-            <br />
+            <br /><br />
             <div class="form-group" id="Depto">
                 <asp:Label ID="lblDepartamento" runat="server" AssociatedControlID="ddlDepartamento"
                     CssClass="col-md-2 control-label">Departamento</asp:Label>
@@ -187,8 +179,7 @@
                         CssClass="text-danger" ErrorMessage="El Departamento es obligatorio." />
                 </div>
             </div>
-            <br />
-            <br />
+            <br /><br />
             <div class="form-group" id="ciudad">
                 <asp:Label ID="lblCiudad" runat="server" AssociatedControlID="ddlCiudad"
                     CssClass="col-md-2 control-label">Ciudad</asp:Label>
@@ -202,8 +193,7 @@
                         CssClass="text-danger" ErrorMessage="La Ciudad es obligatorio." />
                 </div>
             </div>
-            <br />
-            <br />
+            <br /><br />
             <div class="form-group" id="Estado">
                 <asp:Label ID="lblEstado" runat="server" AssociatedControlID="lblSwitch"
                     CssClass="col-md-2 control-label">Estado Empresa</asp:Label>
@@ -215,8 +205,7 @@
                     </label>
                 </div>
             </div>
-            <br />
-            <br />
+            <br /><br />
             <div class="form-group">
                 <asp:Label ID="lblSectorEmpresa" runat="server" AssociatedControlID="lisbxSectorEmpresa"
                     CssClass="col-md-2 control-label">Sector Empresarial</asp:Label>
@@ -226,12 +215,11 @@
                     </asp:CheckBoxList>
                 </div>
             </div>
-            <br />
-            <br />
+            <br /><br />
         </div>
         <div class="form-group" style="padding-left: 15px">
             <asp:Button runat="server" ID="btnGuradar" 
-                Text="Guardar" CssClass="btn btn-default" OnClick="btnGuradar_Click" />
+                Text="Guardar" CssClass="btn btn-default" OnClick="btnGuradar_Click" ValidationGroup="ValidarCRUDEmpresa"/>
             <asp:Button runat="server" Text="Regresar" ID="btnRegresar"
                 CssClass="btn btn-default" OnClick="btnRegresar_Click" />
         </div>

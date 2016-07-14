@@ -76,12 +76,17 @@ namespace IDGI.DataObjects
 
         public void InsertarEmpresa(Tbl_Empresa Empresa)
         {
-            
+
             using (DB_IDGIEntities db = new DB_IDGIEntities())
             {
                 db.Tbl_Empresa.Add(Empresa);
                 db.SaveChanges();
             }
+        }
+
+        public void ConsultarEmpresaPaginado()
+        {
+            
         }
     }
 }
