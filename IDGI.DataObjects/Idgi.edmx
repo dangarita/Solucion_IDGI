@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DB_IDGIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DB_IDGIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -63,6 +63,7 @@
           <Property Name="Correo_Empresa" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="Num_Personal" Type="int" />
           <Property Name="Nom_Contacto" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="EstaActiva" Type="bit" Nullable="false" />
           <Property Name="Id_Ciudad" Type="int" Nullable="false" />
           <Property Name="Id_SectorEmpresarial" Type="int" Nullable="false" />
         </EntityType>
@@ -159,6 +160,29 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_Departamento' does not have a pri
           <Property Name="Id_Departamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_IDGI.dbo.View_Empresa' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_Empresa">
+          <Key>
+            <PropertyRef Name="Id_Empresa" />
+            <PropertyRef Name="Correo_Empresa" />
+            <PropertyRef Name="Nom_Contacto" />
+            <PropertyRef Name="EstaActiva" />
+            <PropertyRef Name="Id_Ciudad" />
+            <PropertyRef Name="Id_SectorEmpresarial" />
+          </Key>
+          <Property Name="Id_Empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_Empresa" Type="varchar" MaxLength="200" />
+          <Property Name="Nit_Empresa" Type="varchar" MaxLength="20" />
+          <Property Name="Dir_Empresa" Type="varchar" MaxLength="250" />
+          <Property Name="Telf_Empresa" Type="nchar" MaxLength="10" />
+          <Property Name="Correo_Empresa" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Num_Personal" Type="int" />
+          <Property Name="Nom_Contacto" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="EstaActiva" Type="bit" Nullable="false" />
+          <Property Name="Id_Ciudad" Type="int" Nullable="false" />
+          <Property Name="Id_SectorEmpresarial" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'DB_IDGI.dbo.View_Pais' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="View_Pais">
           <Key>
@@ -251,30 +275,6 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_SectoresEmpresariales' does not h
             </Principal>
             <Dependent Role="Tbl_Elemento">
               <PropertyRef Name="Id_Factor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Tbl_Empresa_Tbl_Ciudad">
-          <End Role="Tbl_Ciudad" Type="Self.Tbl_Ciudad" Multiplicity="1" />
-          <End Role="Tbl_Empresa" Type="Self.Tbl_Empresa" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tbl_Ciudad">
-              <PropertyRef Name="Id_Ciudad" />
-            </Principal>
-            <Dependent Role="Tbl_Empresa">
-              <PropertyRef Name="Id_Ciudad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Tbl_Empresa_Tbl_SectorEmpresarial">
-          <End Role="Tbl_SectorEmpresarial" Type="Self.Tbl_SectorEmpresarial" Multiplicity="1" />
-          <End Role="Tbl_Empresa" Type="Self.Tbl_Empresa" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tbl_SectorEmpresarial">
-              <PropertyRef Name="Id_SectorEmpresarial" />
-            </Principal>
-            <Dependent Role="Tbl_Empresa">
-              <PropertyRef Name="Id_SectorEmpresarial" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -422,6 +422,21 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_SectoresEmpresariales' does not h
     [View_Departamento].[Id_Departamento] AS [Id_Departamento]
     FROM [dbo].[View_Departamento] AS [View_Departamento]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="View_Empresa" EntityType="Self.View_Empresa" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Empresa].[Id_Empresa] AS [Id_Empresa], 
+    [View_Empresa].[Nom_Empresa] AS [Nom_Empresa], 
+    [View_Empresa].[Nit_Empresa] AS [Nit_Empresa], 
+    [View_Empresa].[Dir_Empresa] AS [Dir_Empresa], 
+    [View_Empresa].[Telf_Empresa] AS [Telf_Empresa], 
+    [View_Empresa].[Correo_Empresa] AS [Correo_Empresa], 
+    [View_Empresa].[Num_Personal] AS [Num_Personal], 
+    [View_Empresa].[Nom_Contacto] AS [Nom_Contacto], 
+    [View_Empresa].[EstaActiva] AS [EstaActiva], 
+    [View_Empresa].[Id_Ciudad] AS [Id_Ciudad], 
+    [View_Empresa].[Id_SectorEmpresarial] AS [Id_SectorEmpresarial]
+    FROM [dbo].[View_Empresa] AS [View_Empresa]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="View_Pais" EntityType="Self.View_Pais" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [View_Pais].[Id_Pais] AS [Id_Pais], 
@@ -465,14 +480,6 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_SectoresEmpresariales' does not h
             <End Role="Tbl_Factor" EntitySet="Tbl_Factor" />
             <End Role="Tbl_Elemento" EntitySet="Tbl_Elemento" />
           </AssociationSet>
-          <AssociationSet Name="FK_Tbl_Empresa_Tbl_Ciudad" Association="Self.FK_Tbl_Empresa_Tbl_Ciudad">
-            <End Role="Tbl_Ciudad" EntitySet="Tbl_Ciudad" />
-            <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Tbl_Empresa_Tbl_SectorEmpresarial" Association="Self.FK_Tbl_Empresa_Tbl_SectorEmpresarial">
-            <End Role="Tbl_SectorEmpresarial" EntitySet="Tbl_SectorEmpresarial" />
-            <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
-          </AssociationSet>
           <AssociationSet Name="FK_Tbl_EmpresaGestor_Tbl_Empresa" Association="Self.FK_Tbl_EmpresaGestor_Tbl_Empresa">
             <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
             <End Role="Tbl_EmpresaGestor" EntitySet="Tbl_EmpresaGestor" />
@@ -502,7 +509,8 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_SectoresEmpresariales' does not h
             <End Role="Tbl_Respuesta" EntitySet="Tbl_Respuesta" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_IDGIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -536,7 +544,6 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_SectoresEmpresariales' does not h
           <Property Name="Codigo_Ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Id_Departamento" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Tbl_Departamento" Relationship="Self.FK_Tbl_Ciudad_Tbl_Departamento" FromRole="Tbl_Ciudad" ToRole="Tbl_Departamento" />
-          <NavigationProperty Name="Tbl_Empresa" Relationship="Self.FK_Tbl_Empresa_Tbl_Ciudad" FromRole="Tbl_Ciudad" ToRole="Tbl_Empresa" />
         </EntityType>
         <EntityType Name="Tbl_Departamento">
           <Key>
@@ -566,18 +573,17 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_SectoresEmpresariales' does not h
           </Key>
           <Property Name="Id_Empresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nom_Empresa" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Nit_Empresa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Dir_Empresa" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Telf_Empresa" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Correo_Empresa" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Num_Personal" Type="Int32" />
+          <Property Name="Nom_Contacto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EstaActiva" Type="Boolean" Nullable="false" />
           <Property Name="Id_Ciudad" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Tbl_Ciudad" Relationship="Self.FK_Tbl_Empresa_Tbl_Ciudad" FromRole="Tbl_Empresa" ToRole="Tbl_Ciudad" />
+          <Property Name="Id_SectorEmpresarial" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Tbl_EmpresaGestor" Relationship="Self.FK_Tbl_EmpresaGestor_Tbl_Empresa" FromRole="Tbl_Empresa" ToRole="Tbl_EmpresaGestor" />
           <NavigationProperty Name="Tbl_Respuesta" Relationship="Self.FK_Tbl_Respuesta_Tbl_Empresa" FromRole="Tbl_Empresa" ToRole="Tbl_Respuesta" />
-          <Property Name="Id_SectorEmpresarial" Type="Int32" Nullable="false" />
-          <Property Name="Nit_Empresa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Tbl_SectorEmpresarial" Relationship="DB_IDGIModel.FK_Tbl_Empresa_Tbl_SectorEmpresarial" FromRole="Tbl_Empresa" ToRole="Tbl_SectorEmpresarial" />
-          <Property Name="Correo_Empresa" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Telf_Empresa" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Nom_Contacto" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Dir_Empresa" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Tbl_EmpresaGestor">
           <Key>
@@ -652,6 +658,97 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_SectoresEmpresariales' does not h
           <NavigationProperty Name="Tbl_Gestor" Relationship="Self.FK_Tbl_Respuesta_Tbl_Gestor" FromRole="Tbl_Respuesta" ToRole="Tbl_Gestor" />
           <NavigationProperty Name="Tbl_Pregunta" Relationship="Self.FK_Tbl_Respuesta_Tbl_Pregunta" FromRole="Tbl_Respuesta" ToRole="Tbl_Pregunta" />
         </EntityType>
+        <EntityType Name="Tbl_SectorEmpresarial">
+          <Key>
+            <PropertyRef Name="Id_SectorEmpresarial" />
+          </Key>
+          <Property Name="Id_SectorEmpresarial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Sector" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EstaActivo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_Ciudad">
+          <Key>
+            <PropertyRef Name="Id_Ciudad" />
+            <PropertyRef Name="Nom_Ciudad" />
+            <PropertyRef Name="Id_Departamento" />
+          </Key>
+          <Property Name="Id_Ciudad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Departamento" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_Departamento">
+          <Key>
+            <PropertyRef Name="Id_Pais" />
+            <PropertyRef Name="Nom_Departamento" />
+            <PropertyRef Name="Id_Departamento" />
+          </Key>
+          <Property Name="Id_Pais" Type="Int32" Nullable="false" />
+          <Property Name="Nom_Departamento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Departamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="View_Empresa">
+          <Key>
+            <PropertyRef Name="Id_Empresa" />
+            <PropertyRef Name="Correo_Empresa" />
+            <PropertyRef Name="Nom_Contacto" />
+            <PropertyRef Name="EstaActiva" />
+            <PropertyRef Name="Id_Ciudad" />
+            <PropertyRef Name="Id_SectorEmpresarial" />
+          </Key>
+          <Property Name="Id_Empresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Empresa" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Nit_Empresa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Dir_Empresa" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Telf_Empresa" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Correo_Empresa" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Num_Personal" Type="Int32" />
+          <Property Name="Nom_Contacto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EstaActiva" Type="Boolean" Nullable="false" />
+          <Property Name="Id_Ciudad" Type="Int32" Nullable="false" />
+          <Property Name="Id_SectorEmpresarial" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_Pais">
+          <Key>
+            <PropertyRef Name="Id_Pais" />
+            <PropertyRef Name="Nom_Pais" />
+          </Key>
+          <Property Name="Id_Pais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Pais" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_Preguntas">
+          <Key>
+            <PropertyRef Name="Id_Pilar" />
+            <PropertyRef Name="Id_Bloque" />
+            <PropertyRef Name="Id_Factor" />
+            <PropertyRef Name="Id_Elemento" />
+            <PropertyRef Name="Id_Pregunta" />
+            <PropertyRef Name="Nom_Pilar" />
+            <PropertyRef Name="Nom_Bloque" />
+            <PropertyRef Name="Nom_Factor" />
+            <PropertyRef Name="Nom_Elemento" />
+            <PropertyRef Name="Nom_Pregunta" />
+          </Key>
+          <Property Name="Id_Pilar" Type="Int32" Nullable="false" />
+          <Property Name="Id_Bloque" Type="Int32" Nullable="false" />
+          <Property Name="Id_Factor" Type="Int32" Nullable="false" />
+          <Property Name="Id_Elemento" Type="Int32" Nullable="false" />
+          <Property Name="Id_Pregunta" Type="Int32" Nullable="false" />
+          <Property Name="Nom_Pilar" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nom_Bloque" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nom_Factor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nom_Elemento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nom_Pregunta" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_SectoresEmpresariales">
+          <Key>
+            <PropertyRef Name="Id_SectorEmpresarial" />
+            <PropertyRef Name="Nom_Sector" />
+            <PropertyRef Name="EstaActivo" />
+          </Key>
+          <Property Name="Id_SectorEmpresarial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Sector" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EstaActivo" Type="Boolean" Nullable="false" />
+        </EntityType>
         <Association Name="FK_Tbl_Bloque_Tbl_Pilar">
           <End Role="Tbl_Pilar" Type="Self.Tbl_Pilar" Multiplicity="1" />
           <End Role="Tbl_Bloque" Type="Self.Tbl_Bloque" Multiplicity="*" />
@@ -685,18 +782,6 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_SectoresEmpresariales' does not h
             </Principal>
             <Dependent Role="Tbl_Ciudad">
               <PropertyRef Name="Id_Departamento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Tbl_Empresa_Tbl_Ciudad">
-          <End Role="Tbl_Ciudad" Type="Self.Tbl_Ciudad" Multiplicity="1" />
-          <End Role="Tbl_Empresa" Type="Self.Tbl_Empresa" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tbl_Ciudad">
-              <PropertyRef Name="Id_Ciudad" />
-            </Principal>
-            <Dependent Role="Tbl_Empresa">
-              <PropertyRef Name="Id_Ciudad" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -810,6 +895,13 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_SectoresEmpresariales' does not h
           <EntitySet Name="Tbl_Pilar" EntityType="Self.Tbl_Pilar" />
           <EntitySet Name="Tbl_Pregunta" EntityType="Self.Tbl_Pregunta" />
           <EntitySet Name="Tbl_Respuesta" EntityType="Self.Tbl_Respuesta" />
+          <EntitySet Name="Tbl_SectorEmpresarial" EntityType="Self.Tbl_SectorEmpresarial" />
+          <EntitySet Name="View_Ciudad" EntityType="Self.View_Ciudad" />
+          <EntitySet Name="View_Departamento" EntityType="Self.View_Departamento" />
+          <EntitySet Name="View_Empresa" EntityType="Self.View_Empresa" />
+          <EntitySet Name="View_Pais" EntityType="Self.View_Pais" />
+          <EntitySet Name="View_Preguntas" EntityType="Self.View_Preguntas" />
+          <EntitySet Name="View_SectoresEmpresariales" EntityType="Self.View_SectoresEmpresariales" />
           <AssociationSet Name="FK_Tbl_Bloque_Tbl_Pilar" Association="Self.FK_Tbl_Bloque_Tbl_Pilar">
             <End Role="Tbl_Pilar" EntitySet="Tbl_Pilar" />
             <End Role="Tbl_Bloque" EntitySet="Tbl_Bloque" />
@@ -821,10 +913,6 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_SectoresEmpresariales' does not h
           <AssociationSet Name="FK_Tbl_Ciudad_Tbl_Departamento" Association="Self.FK_Tbl_Ciudad_Tbl_Departamento">
             <End Role="Tbl_Departamento" EntitySet="Tbl_Departamento" />
             <End Role="Tbl_Ciudad" EntitySet="Tbl_Ciudad" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Tbl_Empresa_Tbl_Ciudad" Association="Self.FK_Tbl_Empresa_Tbl_Ciudad">
-            <End Role="Tbl_Ciudad" EntitySet="Tbl_Ciudad" />
-            <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
           </AssociationSet>
           <AssociationSet Name="FK_Tbl_Departamento_Tbl_Pais" Association="Self.FK_Tbl_Departamento_Tbl_Pais">
             <End Role="Tbl_Pais" EntitySet="Tbl_Pais" />
@@ -888,16 +976,6 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_SectoresEmpresariales' does not h
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="View_Preguntas" EntityType="DB_IDGIModel.View_Preguntas" />
-          <EntitySet Name="View_Ciudad" EntityType="DB_IDGIModel.View_Ciudad" />
-          <EntitySet Name="View_Departamento" EntityType="DB_IDGIModel.View_Departamento" />
-          <EntitySet Name="View_Pais" EntityType="DB_IDGIModel.View_Pais" />
-          <EntitySet Name="Tbl_SectorEmpresarial" EntityType="DB_IDGIModel.Tbl_SectorEmpresarial" />
-          <AssociationSet Name="FK_Tbl_Empresa_Tbl_SectorEmpresarial" Association="DB_IDGIModel.FK_Tbl_Empresa_Tbl_SectorEmpresarial">
-            <End Role="Tbl_SectorEmpresarial" EntitySet="Tbl_SectorEmpresarial" />
-            <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
-          </AssociationSet>
-          <EntitySet Name="View_SectoresEmpresariales" EntityType="DB_IDGIModel.View_SectoresEmpresariales" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -910,89 +988,6 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_SectoresEmpresariales' does not h
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="View_Preguntas">
-          <Key>
-            <PropertyRef Name="Id_Pilar" />
-            <PropertyRef Name="Id_Bloque" />
-            <PropertyRef Name="Id_Factor" />
-            <PropertyRef Name="Id_Elemento" />
-            <PropertyRef Name="Id_Pregunta" />
-            <PropertyRef Name="Nom_Pilar" />
-            <PropertyRef Name="Nom_Bloque" />
-            <PropertyRef Name="Nom_Factor" />
-            <PropertyRef Name="Nom_Elemento" />
-            <PropertyRef Name="Nom_Pregunta" />
-          </Key>
-          <Property Name="Id_Pilar" Type="Int32" Nullable="false" />
-          <Property Name="Id_Bloque" Type="Int32" Nullable="false" />
-          <Property Name="Id_Factor" Type="Int32" Nullable="false" />
-          <Property Name="Id_Elemento" Type="Int32" Nullable="false" />
-          <Property Name="Id_Pregunta" Type="Int32" Nullable="false" />
-          <Property Name="Nom_Pilar" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Nom_Bloque" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Nom_Factor" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Nom_Elemento" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Nom_Pregunta" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="View_Ciudad">
-          <Key>
-            <PropertyRef Name="Id_Ciudad" />
-            <PropertyRef Name="Nom_Ciudad" />
-            <PropertyRef Name="Id_Departamento" />
-          </Key>
-          <Property Name="Id_Ciudad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom_Ciudad" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Id_Departamento" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="View_Departamento">
-          <Key>
-            <PropertyRef Name="Id_Pais" />
-            <PropertyRef Name="Nom_Departamento" />
-            <PropertyRef Name="Id_Departamento" />
-          </Key>
-          <Property Name="Id_Pais" Type="Int32" Nullable="false" />
-          <Property Name="Nom_Departamento" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Id_Departamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-        </EntityType>
-        <EntityType Name="View_Pais">
-          <Key>
-            <PropertyRef Name="Id_Pais" />
-            <PropertyRef Name="Nom_Pais" />
-          </Key>
-          <Property Name="Id_Pais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom_Pais" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="Tbl_SectorEmpresarial">
-          <Key>
-            <PropertyRef Name="Id_SectorEmpresarial" />
-          </Key>
-          <Property Name="Id_SectorEmpresarial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom_Sector" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="EstaActivo" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Tbl_Empresa" Relationship="DB_IDGIModel.FK_Tbl_Empresa_Tbl_SectorEmpresarial" FromRole="Tbl_SectorEmpresarial" ToRole="Tbl_Empresa" />
-        </EntityType>
-        <Association Name="FK_Tbl_Empresa_Tbl_SectorEmpresarial">
-          <End Type="DB_IDGIModel.Tbl_SectorEmpresarial" Role="Tbl_SectorEmpresarial" Multiplicity="1" />
-          <End Type="DB_IDGIModel.Tbl_Empresa" Role="Tbl_Empresa" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tbl_SectorEmpresarial">
-              <PropertyRef Name="Id_SectorEmpresarial" />
-            </Principal>
-            <Dependent Role="Tbl_Empresa">
-              <PropertyRef Name="Id_SectorEmpresarial" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="View_SectoresEmpresariales">
-          <Key>
-            <PropertyRef Name="Id_SectorEmpresarial" />
-            <PropertyRef Name="Nom_Sector" />
-            <PropertyRef Name="EstaActivo" />
-          </Key>
-          <Property Name="Id_SectorEmpresarial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom_Sector" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="EstaActivo" Type="Boolean" Nullable="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1053,16 +1048,17 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_SectoresEmpresariales' does not h
           <EntitySetMapping Name="Tbl_Empresa">
             <EntityTypeMapping TypeName="DB_IDGIModel.Tbl_Empresa">
               <MappingFragment StoreEntitySet="Tbl_Empresa">
-                <ScalarProperty Name="Dir_Empresa" ColumnName="Dir_Empresa" />
-                <ScalarProperty Name="Nom_Contacto" ColumnName="Nom_Contacto" />
-                <ScalarProperty Name="Telf_Empresa" ColumnName="Telf_Empresa" />
-                <ScalarProperty Name="Correo_Empresa" ColumnName="Correo_Empresa" />
-                <ScalarProperty Name="Nit_Empresa" ColumnName="Nit_Empresa" />
-                <ScalarProperty Name="Id_SectorEmpresarial" ColumnName="Id_SectorEmpresarial" />
                 <ScalarProperty Name="Id_Empresa" ColumnName="Id_Empresa" />
                 <ScalarProperty Name="Nom_Empresa" ColumnName="Nom_Empresa" />
+                <ScalarProperty Name="Nit_Empresa" ColumnName="Nit_Empresa" />
+                <ScalarProperty Name="Dir_Empresa" ColumnName="Dir_Empresa" />
+                <ScalarProperty Name="Telf_Empresa" ColumnName="Telf_Empresa" />
+                <ScalarProperty Name="Correo_Empresa" ColumnName="Correo_Empresa" />
                 <ScalarProperty Name="Num_Personal" ColumnName="Num_Personal" />
+                <ScalarProperty Name="Nom_Contacto" ColumnName="Nom_Contacto" />
+                <ScalarProperty Name="EstaActiva" ColumnName="EstaActiva" />
                 <ScalarProperty Name="Id_Ciudad" ColumnName="Id_Ciudad" />
+                <ScalarProperty Name="Id_SectorEmpresarial" ColumnName="Id_SectorEmpresarial" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1133,6 +1129,83 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_SectoresEmpresariales' does not h
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_SectorEmpresarial">
+            <EntityTypeMapping TypeName="DB_IDGIModel.Tbl_SectorEmpresarial">
+              <MappingFragment StoreEntitySet="Tbl_SectorEmpresarial">
+                <ScalarProperty Name="Id_SectorEmpresarial" ColumnName="Id_SectorEmpresarial" />
+                <ScalarProperty Name="Nom_Sector" ColumnName="Nom_Sector" />
+                <ScalarProperty Name="EstaActivo" ColumnName="EstaActivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Ciudad">
+            <EntityTypeMapping TypeName="DB_IDGIModel.View_Ciudad">
+              <MappingFragment StoreEntitySet="View_Ciudad">
+                <ScalarProperty Name="Id_Ciudad" ColumnName="Id_Ciudad" />
+                <ScalarProperty Name="Nom_Ciudad" ColumnName="Nom_Ciudad" />
+                <ScalarProperty Name="Id_Departamento" ColumnName="Id_Departamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Departamento">
+            <EntityTypeMapping TypeName="DB_IDGIModel.View_Departamento">
+              <MappingFragment StoreEntitySet="View_Departamento">
+                <ScalarProperty Name="Id_Pais" ColumnName="Id_Pais" />
+                <ScalarProperty Name="Nom_Departamento" ColumnName="Nom_Departamento" />
+                <ScalarProperty Name="Id_Departamento" ColumnName="Id_Departamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Empresa">
+            <EntityTypeMapping TypeName="DB_IDGIModel.View_Empresa">
+              <MappingFragment StoreEntitySet="View_Empresa">
+                <ScalarProperty Name="Id_Empresa" ColumnName="Id_Empresa" />
+                <ScalarProperty Name="Nom_Empresa" ColumnName="Nom_Empresa" />
+                <ScalarProperty Name="Nit_Empresa" ColumnName="Nit_Empresa" />
+                <ScalarProperty Name="Dir_Empresa" ColumnName="Dir_Empresa" />
+                <ScalarProperty Name="Telf_Empresa" ColumnName="Telf_Empresa" />
+                <ScalarProperty Name="Correo_Empresa" ColumnName="Correo_Empresa" />
+                <ScalarProperty Name="Num_Personal" ColumnName="Num_Personal" />
+                <ScalarProperty Name="Nom_Contacto" ColumnName="Nom_Contacto" />
+                <ScalarProperty Name="EstaActiva" ColumnName="EstaActiva" />
+                <ScalarProperty Name="Id_Ciudad" ColumnName="Id_Ciudad" />
+                <ScalarProperty Name="Id_SectorEmpresarial" ColumnName="Id_SectorEmpresarial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Pais">
+            <EntityTypeMapping TypeName="DB_IDGIModel.View_Pais">
+              <MappingFragment StoreEntitySet="View_Pais">
+                <ScalarProperty Name="Id_Pais" ColumnName="Id_Pais" />
+                <ScalarProperty Name="Nom_Pais" ColumnName="Nom_Pais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Preguntas">
+            <EntityTypeMapping TypeName="DB_IDGIModel.View_Preguntas">
+              <MappingFragment StoreEntitySet="View_Preguntas">
+                <ScalarProperty Name="Id_Pilar" ColumnName="Id_Pilar" />
+                <ScalarProperty Name="Id_Bloque" ColumnName="Id_Bloque" />
+                <ScalarProperty Name="Id_Factor" ColumnName="Id_Factor" />
+                <ScalarProperty Name="Id_Elemento" ColumnName="Id_Elemento" />
+                <ScalarProperty Name="Id_Pregunta" ColumnName="Id_Pregunta" />
+                <ScalarProperty Name="Nom_Pilar" ColumnName="Nom_Pilar" />
+                <ScalarProperty Name="Nom_Bloque" ColumnName="Nom_Bloque" />
+                <ScalarProperty Name="Nom_Factor" ColumnName="Nom_Factor" />
+                <ScalarProperty Name="Nom_Elemento" ColumnName="Nom_Elemento" />
+                <ScalarProperty Name="Nom_Pregunta" ColumnName="Nom_Pregunta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_SectoresEmpresariales">
+            <EntityTypeMapping TypeName="DB_IDGIModel.View_SectoresEmpresariales">
+              <MappingFragment StoreEntitySet="View_SectoresEmpresariales">
+                <ScalarProperty Name="Id_SectorEmpresarial" ColumnName="Id_SectorEmpresarial" />
+                <ScalarProperty Name="Nom_Sector" ColumnName="Nom_Sector" />
+                <ScalarProperty Name="EstaActivo" ColumnName="EstaActivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="DB_IDGIModel.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="DB_IDGIModel.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="DB_IDGIModel.Store.sp_dropdiagram" />
@@ -1157,66 +1230,6 @@ warning 6002: The table/view 'DB_IDGI.dbo.View_SectoresEmpresariales' does not h
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DB_IDGIModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DB_IDGIModel.Store.sp_upgraddiagrams" />
-          <EntitySetMapping Name="View_Preguntas">
-            <EntityTypeMapping TypeName="DB_IDGIModel.View_Preguntas">
-              <MappingFragment StoreEntitySet="View_Preguntas">
-                <ScalarProperty Name="Nom_Pregunta" ColumnName="Nom_Pregunta" />
-                <ScalarProperty Name="Nom_Elemento" ColumnName="Nom_Elemento" />
-                <ScalarProperty Name="Nom_Factor" ColumnName="Nom_Factor" />
-                <ScalarProperty Name="Nom_Bloque" ColumnName="Nom_Bloque" />
-                <ScalarProperty Name="Nom_Pilar" ColumnName="Nom_Pilar" />
-                <ScalarProperty Name="Id_Pregunta" ColumnName="Id_Pregunta" />
-                <ScalarProperty Name="Id_Elemento" ColumnName="Id_Elemento" />
-                <ScalarProperty Name="Id_Factor" ColumnName="Id_Factor" />
-                <ScalarProperty Name="Id_Bloque" ColumnName="Id_Bloque" />
-                <ScalarProperty Name="Id_Pilar" ColumnName="Id_Pilar" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="View_Ciudad">
-            <EntityTypeMapping TypeName="DB_IDGIModel.View_Ciudad">
-              <MappingFragment StoreEntitySet="View_Ciudad">
-                <ScalarProperty Name="Id_Departamento" ColumnName="Id_Departamento" />
-                <ScalarProperty Name="Nom_Ciudad" ColumnName="Nom_Ciudad" />
-                <ScalarProperty Name="Id_Ciudad" ColumnName="Id_Ciudad" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="View_Departamento">
-            <EntityTypeMapping TypeName="DB_IDGIModel.View_Departamento">
-              <MappingFragment StoreEntitySet="View_Departamento">
-                <ScalarProperty Name="Id_Departamento" ColumnName="Id_Departamento" />
-                <ScalarProperty Name="Nom_Departamento" ColumnName="Nom_Departamento" />
-                <ScalarProperty Name="Id_Pais" ColumnName="Id_Pais" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="View_Pais">
-            <EntityTypeMapping TypeName="DB_IDGIModel.View_Pais">
-              <MappingFragment StoreEntitySet="View_Pais">
-                <ScalarProperty Name="Nom_Pais" ColumnName="Nom_Pais" />
-                <ScalarProperty Name="Id_Pais" ColumnName="Id_Pais" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tbl_SectorEmpresarial">
-            <EntityTypeMapping TypeName="DB_IDGIModel.Tbl_SectorEmpresarial">
-              <MappingFragment StoreEntitySet="Tbl_SectorEmpresarial">
-                <ScalarProperty Name="EstaActivo" ColumnName="EstaActivo" />
-                <ScalarProperty Name="Nom_Sector" ColumnName="Nom_Sector" />
-                <ScalarProperty Name="Id_SectorEmpresarial" ColumnName="Id_SectorEmpresarial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="View_SectoresEmpresariales">
-            <EntityTypeMapping TypeName="DB_IDGIModel.View_SectoresEmpresariales">
-              <MappingFragment StoreEntitySet="View_SectoresEmpresariales">
-                <ScalarProperty Name="EstaActivo" ColumnName="EstaActivo" />
-                <ScalarProperty Name="Nom_Sector" ColumnName="Nom_Sector" />
-                <ScalarProperty Name="Id_SectorEmpresarial" ColumnName="Id_SectorEmpresarial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

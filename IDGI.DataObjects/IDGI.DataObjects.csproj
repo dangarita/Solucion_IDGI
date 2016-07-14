@@ -71,13 +71,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="Idgi.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Idgi.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="Idgi.edmx.diagram">
       <DependentUpon>Idgi.edmx</DependentUpon>
     </None>
@@ -99,8 +97,8 @@
   <ItemGroup>
     <Content Include="Idgi.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Idgi.Context.cs</LastGenOutput>
       <DependentUpon>Idgi.edmx</DependentUpon>
+      <LastGenOutput>Idgi.Context.cs</LastGenOutput>
       <CustomToolNamespace>IDGI.Entities</CustomToolNamespace>
     </Content>
   </ItemGroup>

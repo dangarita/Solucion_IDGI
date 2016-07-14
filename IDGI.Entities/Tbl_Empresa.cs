@@ -23,20 +23,19 @@ namespace IDGI.Entities
     
         public int Id_Empresa { get; set; }
         public string Nom_Empresa { get; set; }
+        public string Nit_Empresa { get; set; }
+        public string Dir_Empresa { get; set; }
+        public string Telf_Empresa { get; set; }
+        public string Correo_Empresa { get; set; }
         public Nullable<int> Num_Personal { get; set; }
+        public string Nom_Contacto { get; set; }
+        public bool EstaActiva { get; set; }
         public int Id_Ciudad { get; set; }
         public int Id_SectorEmpresarial { get; set; }
-        public string Nit_Empresa { get; set; }
-        public string Correo_Empresa { get; set; }
-        public string Telf_Empresa { get; set; }
-        public string Nom_Contacto { get; set; }
-        public string Dir_Empresa { get; set; }
     
-        public virtual Tbl_Ciudad Tbl_Ciudad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_EmpresaGestor> Tbl_EmpresaGestor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_Respuesta> Tbl_Respuesta { get; set; }
-        public virtual Tbl_SectorEmpresarial Tbl_SectorEmpresarial { get; set; }
     }
 }

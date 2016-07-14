@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Idgi.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -99,6 +98,9 @@
       <DependentUpon>Idgi.tt</DependentUpon>
     </Compile>
     <Compile Include="View_Departamento.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_Empresa.cs">
       <DependentUpon>Idgi.tt</DependentUpon>
     </Compile>
     <Compile Include="View_Pais.cs">

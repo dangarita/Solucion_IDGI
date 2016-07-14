@@ -14,17 +14,8 @@ namespace IDGI.Entities
     
     public partial class Tbl_SectorEmpresarial
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tbl_SectorEmpresarial()
-        {
-            this.Tbl_Empresa = new HashSet<Tbl_Empresa>();
-        }
-    
         public int Id_SectorEmpresarial { get; set; }
         public string Nom_Sector { get; set; }
         public bool EstaActivo { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_Empresa> Tbl_Empresa { get; set; }
     }
 }

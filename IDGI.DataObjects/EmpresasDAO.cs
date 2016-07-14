@@ -50,8 +50,8 @@ namespace IDGI.DataObjects
             {
                 lstCiudad = db.View_Ciudad.ToList();
             }
-            List<View_Ciudad> lstCiudadNew = new List<View_Ciudad>();
-            lstCiudadNew = (from obj in lstCiudad
+            List<View_Ciudad> lstCiudadFiltro = new List<View_Ciudad>();
+            lstCiudadFiltro = (from obj in lstCiudad
                             where obj.Id_Departamento == IdDpto
                          select new View_Ciudad
                          {
@@ -60,7 +60,7 @@ namespace IDGI.DataObjects
                              Nom_Ciudad = obj.Nom_Ciudad
                          }).ToList();
 
-            return lstCiudadNew;
+            return lstCiudadFiltro;
         }
 
         public List<View_SectoresEmpresariales> ObtenerListaSectores()
@@ -84,9 +84,43 @@ namespace IDGI.DataObjects
             }
         }
 
-        public void ConsultarEmpresaPaginado()
+        public List<View_Empresa> ConsultarEmpresa(Tbl_Empresa oEmpresa)
         {
+            List<View_Empresa> lstEmpresas = new List<View_Empresa>();
+
+            using (DB_IDGIEntities db = new DB_IDGIEntities())
+            {
+                lstEmpresas = db.View_Empresa.ToList();
+            }
             
+            if (oEmpresa.Id_Empresa > 0)
+            {
+                List<View_Empresa> lstEmpresaFiltro = new List<View_Empresa>();
+
+                lstEmpresaFiltro = (from obj in lstEmpresas
+                                    where obj.Id_Empresa == oEmpresa.Id_Empresa
+                                    select new View_Empresa
+                                    {
+                                        Correo_Empresa = obj.Correo_Empresa,
+                                        Id_Ciudad = obj.Id_Ciudad,
+                                        Dir_Empresa = obj.Dir_Empresa,
+                                        Id_Empresa = obj.Id_Empresa,
+                                        Id_SectorEmpresarial = obj.Id_SectorEmpresarial,
+                                        Nit_Empresa = obj.Nit_Empresa,
+                                        Nom_Contacto = obj.Nom_Contacto,
+                                        Nom_Empresa = obj.Nom_Empresa,
+                                        Num_Personal = obj.Num_Personal,
+                                        Telf_Empresa = obj.Telf_Empresa,
+                                        EstaActiva = obj.EstaActiva
+                                    }).ToList();
+
+
+                return lstEmpresaFiltro;
+            }
+            else
+            {
+                return lstEmpresas;
+            }
         }
     }
 }

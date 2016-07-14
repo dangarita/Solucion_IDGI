@@ -40,11 +40,12 @@ namespace IDGI.Entities
         public virtual DbSet<Tbl_Pilar> Tbl_Pilar { get; set; }
         public virtual DbSet<Tbl_Pregunta> Tbl_Pregunta { get; set; }
         public virtual DbSet<Tbl_Respuesta> Tbl_Respuesta { get; set; }
-        public virtual DbSet<View_Preguntas> View_Preguntas { get; set; }
+        public virtual DbSet<Tbl_SectorEmpresarial> Tbl_SectorEmpresarial { get; set; }
         public virtual DbSet<View_Ciudad> View_Ciudad { get; set; }
         public virtual DbSet<View_Departamento> View_Departamento { get; set; }
+        public virtual DbSet<View_Empresa> View_Empresa { get; set; }
         public virtual DbSet<View_Pais> View_Pais { get; set; }
-        public virtual DbSet<Tbl_SectorEmpresarial> Tbl_SectorEmpresarial { get; set; }
+        public virtual DbSet<View_Preguntas> View_Preguntas { get; set; }
         public virtual DbSet<View_SectoresEmpresariales> View_SectoresEmpresariales { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
