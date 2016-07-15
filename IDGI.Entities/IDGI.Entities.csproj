@@ -49,6 +49,7 @@
     <Compile Include="Departamento.cs">
       <DependentUpon>Idgi.tt</DependentUpon>
     </Compile>
+    <Compile Include="DtoBase.cs" />
     <Compile Include="DtoCiudad.cs">
       <DependentUpon>Idgi.tt</DependentUpon>
     </Compile>

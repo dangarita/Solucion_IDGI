@@ -46,7 +46,7 @@
             <div>
                 <asp:GridView ID="grdEmpresa" runat="server" AllowSorting="True" CssClass="grid"
                     AlternatingRowStyle-CssClass="altrowstyle" AutoGenerateColumns="False"
-                    CellPadding="0" DataKeyNames="Id_Cliente"
+                    CellPadding="0" DataKeyNames="Id_Empresa"
                     Height="16px" OnPreRender="grilla_PreRender" OnRowCreated="grilla_RowCreated"
                     OnRowDataBound="grilla_RowDataBound" OnSorting="grilla_Sorting" Administracionize="5"
                     Width="100%" TabIndex="8">

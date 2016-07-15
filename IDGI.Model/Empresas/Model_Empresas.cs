@@ -5,6 +5,8 @@ using Library.Utilidades.Enums;
 using Library.Exception;
 using IDGI.CultureResource;
 using IDGI.Entities;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace IDGI.Model
 {
@@ -129,17 +131,104 @@ namespace IDGI.Model
 
             return oResultadoListaSector;
         }
-        public ResultadoOperacion ObtenerEmpresaPaginado()
+        public ResultadoOperacion ObtenerEmpresaPaginado(int iPageNumber, string ExpresionFiltro, string _OrdenCampoDispSelect)
         {
+            objEmpDao = new EmpresasDAO();
             ResultadoOperacion oResultadoEmpresaPag = new ResultadoOperacion();
+            List<DtoEmpresa> lstEmpresa = objEmpDao.ObtenerListaEmpresa();
+
+            if (lstEmpresa != null && lstEmpresa.Count > 0)
+            {
+                var records = from emp in lstEmpresa
+                              select emp;
+
+                var PageNumber = iPageNumber;
+                int showItem = Globales.iRegistrosPaginaSmall;
+
+                var lista = new List<DtoEmpresa>();
+
+                // Realiza el filtro en de la lista en memoria
+                if (ExpresionFiltro != string.Empty)
+                {
+                    records = records.Where(x => x.Nom_Empresa.Contains(ExpresionFiltro)).ToList();
+                }
+
+                //Ordena la lista en memoria segun la dirección de la columna
+                if (_OrdenCampoDispSelect.ToLower() == "asc")
+                {
+                    lista = records.OrderBy(p => p.Nom_Empresa).ToList();
+                }
+                else
+                {
+                    lista = records.OrderByDescending(p => p.Nom_Empresa).ToList();
+                }
+
+                records = lista.Skip((PageNumber - 1) * showItem).Take(showItem);
+
+                int i = 1;
+                DtoEmpresa oDtoNewEmpresa = null;
+                List<DtoEmpresa> lstNewEmpresa = new List<DtoEmpresa>();
+
+                foreach (var item in records)
+                {
+                    oDtoNewEmpresa = new DtoEmpresa();
+                    oDtoNewEmpresa.Correo_Empresa = item.Correo_Empresa;
+                    oDtoNewEmpresa.Dir_Empresa = item.Dir_Empresa;
+                    oDtoNewEmpresa.EstaActiva = item.EstaActiva;
+                    oDtoNewEmpresa.Id_Ciudad = item.Id_Ciudad;
+                    oDtoNewEmpresa.Id_Empresa = item.Id_Empresa;
+                    oDtoNewEmpresa.Id_SectorEmpresarial = item.Id_SectorEmpresarial;
+                    oDtoNewEmpresa.Nit_Empresa = item.Nit_Empresa;
+                    oDtoNewEmpresa.Nom_Contacto = item.Nom_Contacto;
+                    oDtoNewEmpresa.Nom_Empresa = item.Nom_Empresa;
+                    oDtoNewEmpresa.Num_Personal = item.Num_Personal;
+                    oDtoNewEmpresa.Telf_Empresa = item.Telf_Empresa;
+                    oDtoNewEmpresa.TotalRegistros = lista.Count;
+                    oDtoNewEmpresa.Row = i;
+                    i += 1;
+                    lstNewEmpresa.Add(oDtoNewEmpresa);
+                }
+
+                oResultadoEmpresaPag.ListaEntidadDatos = lstNewEmpresa;
+            }
 
             return oResultadoEmpresaPag;
         }
-        public ResultadoOperacion ObtenerListaEmpresa(Empresa oEmpresa)
+        public ResultadoOperacion ObtenerListaEmpresas()
         {
             ResultadoOperacion oResultadoEmpresa = new ResultadoOperacion();
 
+            List<DtoEmpresa> lstEmpresa = objEmpDao.ObtenerListaEmpresa();
+
+            if (lstEmpresa != null && lstEmpresa.Count > 0)
+            {
+
+                List<DtoEmpresa> lstEmpresaFiltro = (from obj in lstEmpresa
+                                                     where obj.EstaActiva == true
+                                                     select new DtoEmpresa
+                                                     {
+                                                         Correo_Empresa = obj.Correo_Empresa,
+                                                         Id_Ciudad = obj.Id_Ciudad,
+                                                         Dir_Empresa = obj.Dir_Empresa,
+                                                         Id_Empresa = obj.Id_Empresa,
+                                                         Id_SectorEmpresarial = obj.Id_SectorEmpresarial,
+                                                         Nit_Empresa = obj.Nit_Empresa,
+                                                         Nom_Contacto = obj.Nom_Contacto,
+                                                         Nom_Empresa = obj.Nom_Empresa,
+                                                         Num_Personal = obj.Num_Personal,
+                                                         Telf_Empresa = obj.Telf_Empresa,
+                                                         EstaActiva = obj.EstaActiva
+                                                     }).ToList();
+
+
+                oResultadoEmpresa.ListaEntidadDatos = lstEmpresaFiltro;
+                oResultadoEmpresa.oEstado = TipoRespuesta.Exito;
+            }
+
             return oResultadoEmpresa;
         }
+
+
+
     }
 }

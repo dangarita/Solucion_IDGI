@@ -24,5 +24,10 @@ namespace Solucion_IDGI.Controllers
 
             return LstpaisNew;
         }
+        public ResultadoOperacion ObtenerEmpresaPaginado(int iPageNumber, string ExpresionFiltro, string _OrdenCampoDispSelect)
+        {
+            return _Model.ObtenerEmpresaPaginado(iPageNumber, ExpresionFiltro, _OrdenCampoDispSelect);
+        }
     }
+    
 }

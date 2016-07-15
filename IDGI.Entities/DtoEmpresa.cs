@@ -11,8 +11,8 @@ namespace IDGI.Entities
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class DtoEmpresa
+    [Serializable]
+    public partial class DtoEmpresa : DtoBase
     {
         public int Id_Empresa { get; set; }
         public string Nom_Empresa { get; set; }

@@ -24,7 +24,6 @@ namespace Solucion_IDGI.Controllers
 
             return LstpaisNew;
         }
-
         public ResultadoOperacion ObtenerListDpto(int idPais)
         {
             List<DtoDepartamento> LstDptoNew = new List<DtoDepartamento>();
@@ -39,7 +38,6 @@ namespace Solucion_IDGI.Controllers
 
             return oResultadoDpto;
         }
-
         public ResultadoOperacion ObtenerListCiudad(int idDpto)
         {
             List<DtoCiudad> LstCiudadNew = new List<DtoCiudad>();
@@ -54,7 +52,6 @@ namespace Solucion_IDGI.Controllers
 
             return oResultadoCiudad;
         }
-
         public List<DtoSectoresEmpresariales> ObtenerListaSectores()
         {
             List<DtoSectoresEmpresariales> LstSectorNew = new List<DtoSectoresEmpresariales>();
@@ -69,10 +66,11 @@ namespace Solucion_IDGI.Controllers
 
             return LstSectorNew;
         }
-
         public ResultadoOperacion InsertarEmpresa(Empresa Empresa)
         {
             return _Model.InsertarEmpresa(Empresa);
         }
+        
+
     }
 }

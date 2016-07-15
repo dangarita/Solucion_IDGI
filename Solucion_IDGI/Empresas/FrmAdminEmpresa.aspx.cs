@@ -1,4 +1,5 @@
 ﻿using IDGI.CultureResource;
+using IDGI.Entities;
 using Library.Encryption;
 using Library.Utilidades;
 using Library.Utilidades.Enums;
@@ -28,7 +29,6 @@ namespace Solucion_IDGI.Empresas
                 return ViewState["_Empresa_Controller"] as Empresa_Controller;
             }
         }
-
         private IList lstGrillaEmpresas
         {
             get
@@ -40,7 +40,6 @@ namespace Solucion_IDGI.Empresas
                 ViewState["lstGrillaEmpresas"] = value;
             }
         }
-
         private int _IdeEliminacion
         {
             get
@@ -63,7 +62,6 @@ namespace Solucion_IDGI.Empresas
                 ViewState["_OperacionCRUD"] = value;
             }
         }
-
         #endregion
 
         #region Eventos de Pagina
@@ -75,7 +73,7 @@ namespace Solucion_IDGI.Empresas
             eTipoPagina = TipoPaginaPaginado.PrimeraPagina;
             SFiltro = string.Empty;
             BindGrilla();
-            string sMensajeEliminar = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_Msj_Eliminar");
+            string sMensajeEliminar = Multilanguage.GetResourceManagerMultilingual("es-CO", "ResGeneral", "General_Msj_Eliminar");
 
         }
         public override void PageLoad()
@@ -148,27 +146,27 @@ namespace Solucion_IDGI.Empresas
         }
         private void CargaRecursos()
         {
-            this.Title = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResCliente", "Cliente_Titulo_Admin");
-            labelCollapse.InnerText = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_Label_Buscar");
+            this.Title = Multilanguage.GetResourceManagerMultilingual("es-CO", "ResEmpresa", "Empresa_Titulo_Empresas");
+            labelCollapse.InnerText = Multilanguage.GetResourceManagerMultilingual("es-CO", "ResGeneral", "General_Label_Buscar");
 
             //grdUsuarios.EmptyDataText = GeneralASP_Res.General_SinRegistrosBusqueda;
-            btnNuevo.InnerText = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_BtnNuevo");
-            btnConsultar.Text = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_Boton_Consultar");
-            btnLimpiar.Text = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_Boton_Limpiar");
-            btnLimpiar.ToolTip = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_ToolTip_BotonLimpiar");
-            btnConsultar.ToolTip = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_ToolTip_BotonConsultar");
+            btnNuevo.InnerText = Multilanguage.GetResourceManagerMultilingual("es-CO", "ResGeneral", "General_BtnNuevo");
+            btnConsultar.Text = Multilanguage.GetResourceManagerMultilingual("es-CO", "ResGeneral", "General_Boton_Consultar");
+            btnLimpiar.Text = Multilanguage.GetResourceManagerMultilingual("es-CO", "ResGeneral", "General_Boton_Limpiar");
+            btnLimpiar.ToolTip = Multilanguage.GetResourceManagerMultilingual("es-CO", "ResGeneral", "General_ToolTip_BotonLimpiar");
+            btnConsultar.ToolTip = Multilanguage.GetResourceManagerMultilingual("es-CO", "ResGeneral", "General_ToolTip_BotonConsultar");
 
             //Labels
-            lblEmpresa.Text = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResCliente", "Cliente_Label_Cliente");
-            lblNit.Text = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResCliente", "Cliente_Label_Nit");
+            lblEmpresa.Text = Multilanguage.GetResourceManagerMultilingual("es-CO", "ResEmpresa", "Empresa_Label_Empresa");
+            lblNit.Text = Multilanguage.GetResourceManagerMultilingual("es-CO", "ResEmpresa", "Empresa_Label_Nit");
 
             //Paginado
-            lblNomTotReg.Text = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_Label_TotalRegistros");
-            lblNomPag.Text = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_Label_Paginas");
-            btnPrimeroGrilla.ToolTip = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_Label_PrimPagina");
-            btnAnteriorGrilla.ToolTip = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_Label_PagAnterior");
-            btnSiguienteGrilla.ToolTip = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_Label_PagSiguiente");
-            btnUltimoGrilla.ToolTip = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_Label_UltPagina");
+            lblNomTotReg.Text = Multilanguage.GetResourceManagerMultilingual("es-CO", "ResGeneral", "General_Label_TotalRegistros");
+            lblNomPag.Text = Multilanguage.GetResourceManagerMultilingual("es-CO", "ResGeneral", "General_Label_Paginas");
+            btnPrimeroGrilla.ToolTip = Multilanguage.GetResourceManagerMultilingual("es-CO", "ResGeneral", "General_Label_PrimPagina");
+            btnAnteriorGrilla.ToolTip = Multilanguage.GetResourceManagerMultilingual("es-CO", "ResGeneral", "General_Label_PagAnterior");
+            btnSiguienteGrilla.ToolTip = Multilanguage.GetResourceManagerMultilingual("es-CO", "ResGeneral", "General_Label_PagSiguiente");
+            btnUltimoGrilla.ToolTip = Multilanguage.GetResourceManagerMultilingual("es-CO", "ResGeneral", "General_Label_UltPagina");
         }
         #endregion
 
@@ -256,27 +254,26 @@ namespace Solucion_IDGI.Empresas
             //oDatosTraePagina.RegistrosPagina = IRegistrosPagina;
             //oDatosTraePagina.Tipo = (int)eTipoPagina;
 
-            //List<DtoCliente> lstCliente = _Cliente_Controller.ObtenerClientePaginado(oDatosTraePagina);
+            ResultadoOperacion oResultadoEmpresa = _Empresa_Controller.ObtenerEmpresaPaginado(1, "", "asc");
 
-            //if (lstCliente.Count > 0)
-            //{
-            //    string _Idioma = Session["ColtureInfo"].ToString();
+            if (oResultadoEmpresa.oEstado == TipoRespuesta.Exito && oResultadoEmpresa.ListaEntidadDatos != null)
+            {
+                List<DtoEmpresa> lstEmpresa = (List<DtoEmpresa>)oResultadoEmpresa.ListaEntidadDatos;
 
-            //    lstCliente.ForEach(i => i.Idioma = _Idioma);
+                if (lstEmpresa.Count > 0)
+                {
+                    ListaGrilla = lstEmpresa.ToList();
 
-            //    grdEmpresa.Columns[2].HeaderText = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResCliente", "Cliente_Label_Cliente").Replace(" :", "");
-            //    grdEmpresa.Columns[3].HeaderText = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResCliente", "Cliente_Label_Nit").Replace(" :", "");
-            //    grdEmpresa.Columns[4].HeaderText = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResCliente", "Cliente_Label_CodCliente").Replace(" :", "");
-               
+                    //grdEmpresa.DataSource = lstEmpresa;
+                    //grdEmpresa.DataBind();
 
+                    grdEmpresa.Columns[3].Visible = false;
 
-            //    ListaGrilla = lstCliente.ToList();
+                    //SiteMaster MasterPage = (SiteMaster)Page.Master;
+                }
+            }
 
-            //    grdCliente.Columns[7].Visible = false;
-
-            //    SiteMaster MasterPage = (SiteMaster)Page.Master;
-            //    MasterPage.ActualizaObjetosFormulario(grdCliente);
-            //}
+           
 
         }
         public override GridView Grilla
@@ -290,7 +287,7 @@ namespace Solucion_IDGI.Empresas
         {
             set
             {
-                string sTitulo = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "TituloModalMensajes_Tickets");
+                string sTitulo = Multilanguage.GetResourceManagerMultilingual("es-CO", "ResGeneral", "TituloModalMensajes_Tickets");
                 General.MuestraMensaje(sTitulo, value, TipoMensajeWeb.Error, null, Page);
             }
         }

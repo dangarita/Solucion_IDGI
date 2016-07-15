@@ -84,43 +84,15 @@ namespace IDGI.DataObjects
             }
         }
 
-        public List<DtoEmpresa> ConsultarEmpresa(Empresa oEmpresa)
+        public List<DtoEmpresa> ObtenerListaEmpresa()
         {
             List<DtoEmpresa> lstEmpresas = new List<DtoEmpresa>();
 
             using (DB_IDGIEntities db = new DB_IDGIEntities())
             {
-                lstEmpresas = db.DtoEmpresa.ToList();
+                return db.DtoEmpresa.ToList();
             }
             
-            if (oEmpresa.Id_Empresa > 0)
-            {
-                List<DtoEmpresa> lstEmpresaFiltro = new List<DtoEmpresa>();
-
-                lstEmpresaFiltro = (from obj in lstEmpresas
-                                    where obj.Id_Empresa == oEmpresa.Id_Empresa
-                                    select new DtoEmpresa
-                                    {
-                                        Correo_Empresa = obj.Correo_Empresa,
-                                        Id_Ciudad = obj.Id_Ciudad,
-                                        Dir_Empresa = obj.Dir_Empresa,
-                                        Id_Empresa = obj.Id_Empresa,
-                                        Id_SectorEmpresarial = obj.Id_SectorEmpresarial,
-                                        Nit_Empresa = obj.Nit_Empresa,
-                                        Nom_Contacto = obj.Nom_Contacto,
-                                        Nom_Empresa = obj.Nom_Empresa,
-                                        Num_Personal = obj.Num_Personal,
-                                        Telf_Empresa = obj.Telf_Empresa,
-                                        EstaActiva = obj.EstaActiva
-                                    }).ToList();
-
-
-                return lstEmpresaFiltro;
-            }
-            else
-            {
-                return lstEmpresas;
-            }
         }
     }
 }

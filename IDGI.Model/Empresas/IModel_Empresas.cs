@@ -10,6 +10,9 @@ namespace IDGI.Model
         ResultadoOperacion ObtenerListaPais();
         ResultadoOperacion ObtenerListaSectores();
         ResultadoOperacion InsertarEmpresa(Empresa Empresa);
+        ResultadoOperacion ObtenerListaEmpresas();
+        ResultadoOperacion ObtenerEmpresaPaginado(int iPageNumber, string ExpresionFiltro, string _OrdenCampoDispSelect);
+
 
     }
 }
