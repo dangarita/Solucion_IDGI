@@ -12,21 +12,21 @@ namespace IDGI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_Departamento
+    public partial class Pregunta
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tbl_Departamento()
+        public Pregunta()
         {
-            this.Tbl_Ciudad = new HashSet<Tbl_Ciudad>();
+            this.Tbl_Respuesta = new HashSet<Respuesta>();
         }
     
-        public int Id_Departamento { get; set; }
-        public string Nom_Departamento { get; set; }
-        public string Codigo_Departamento { get; set; }
-        public int Id_Pais { get; set; }
+        public int Id_Pregunta { get; set; }
+        public string Nom_Pregunta { get; set; }
+        public bool EstaActivo { get; set; }
+        public int Id_Elemento { get; set; }
     
+        public virtual Elemento Tbl_Elemento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_Ciudad> Tbl_Ciudad { get; set; }
-        public virtual Tbl_Pais Tbl_Pais { get; set; }
+        public virtual ICollection<Respuesta> Tbl_Respuesta { get; set; }
     }
 }

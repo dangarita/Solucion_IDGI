@@ -12,10 +12,17 @@ namespace IDGI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class View_Departamento
+    public partial class DtoPreguntas
     {
-        public int Id_Pais { get; set; }
-        public string Nom_Departamento { get; set; }
-        public int Id_Departamento { get; set; }
+        public int Id_Pilar { get; set; }
+        public int Id_Bloque { get; set; }
+        public int Id_Factor { get; set; }
+        public int Id_Elemento { get; set; }
+        public int Id_Pregunta { get; set; }
+        public string Nom_Pilar { get; set; }
+        public string Nom_Bloque { get; set; }
+        public string Nom_Factor { get; set; }
+        public string Nom_Elemento { get; set; }
+        public string Nom_Pregunta { get; set; }
     }
 }

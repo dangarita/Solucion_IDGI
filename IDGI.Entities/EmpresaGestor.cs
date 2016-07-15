@@ -12,13 +12,13 @@ namespace IDGI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_EmpresaGestor
+    public partial class EmpresaGestor
     {
         public int Id_EmpresaGestor { get; set; }
         public int Id_Empresa { get; set; }
         public int Id_Gestor { get; set; }
     
-        public virtual Tbl_Empresa Tbl_Empresa { get; set; }
-        public virtual Tbl_Gestor Tbl_Gestor { get; set; }
+        public virtual Empresa Tbl_Empresa { get; set; }
+        public virtual Gestor Tbl_Gestor { get; set; }
     }
 }

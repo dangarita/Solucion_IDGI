@@ -12,7 +12,7 @@ namespace IDGI.Model
     {
         private EmpresasDAO objEmpDao;
 
-        public ResultadoOperacion InsertarEmpresa(Tbl_Empresa Empresa)
+        public ResultadoOperacion InsertarEmpresa(Empresa Empresa)
         {
             ResultadoOperacion oResultadoInsEmpresa = new ResultadoOperacion();
 
@@ -35,7 +35,6 @@ namespace IDGI.Model
 
             return oResultadoInsEmpresa;
         }
-
         public ResultadoOperacion ObtenerListaCiudad(int idDpto)
         {
             ResultadoOperacion oResultadoListaCiudad = new ResultadoOperacion();
@@ -60,7 +59,6 @@ namespace IDGI.Model
 
             return oResultadoListaCiudad;
         }
-
         public ResultadoOperacion ObtenerListaDptos(int idPais)
         {
             ResultadoOperacion oResultadoListaDpto = new ResultadoOperacion();
@@ -83,7 +81,6 @@ namespace IDGI.Model
 
             return oResultadoListaDpto;
         }
-
         public ResultadoOperacion ObtenerListaPais()
         {
             ResultadoOperacion oResultadoListaPais = new ResultadoOperacion();
@@ -131,6 +128,18 @@ namespace IDGI.Model
             }
 
             return oResultadoListaSector;
+        }
+        public ResultadoOperacion ObtenerEmpresaPaginado()
+        {
+            ResultadoOperacion oResultadoEmpresaPag = new ResultadoOperacion();
+
+            return oResultadoEmpresaPag;
+        }
+        public ResultadoOperacion ObtenerListaEmpresa(Empresa oEmpresa)
+        {
+            ResultadoOperacion oResultadoEmpresa = new ResultadoOperacion();
+
+            return oResultadoEmpresa;
         }
     }
 }

@@ -27,26 +27,25 @@ namespace IDGI.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Tbl_Bloque> Tbl_Bloque { get; set; }
-        public virtual DbSet<Tbl_Ciudad> Tbl_Ciudad { get; set; }
-        public virtual DbSet<Tbl_Departamento> Tbl_Departamento { get; set; }
-        public virtual DbSet<Tbl_Elemento> Tbl_Elemento { get; set; }
-        public virtual DbSet<Tbl_Empresa> Tbl_Empresa { get; set; }
-        public virtual DbSet<Tbl_EmpresaGestor> Tbl_EmpresaGestor { get; set; }
-        public virtual DbSet<Tbl_Factor> Tbl_Factor { get; set; }
-        public virtual DbSet<Tbl_Gestor> Tbl_Gestor { get; set; }
-        public virtual DbSet<Tbl_Pais> Tbl_Pais { get; set; }
-        public virtual DbSet<Tbl_Pilar> Tbl_Pilar { get; set; }
-        public virtual DbSet<Tbl_Pregunta> Tbl_Pregunta { get; set; }
-        public virtual DbSet<Tbl_Respuesta> Tbl_Respuesta { get; set; }
-        public virtual DbSet<Tbl_SectorEmpresarial> Tbl_SectorEmpresarial { get; set; }
-        public virtual DbSet<View_Ciudad> View_Ciudad { get; set; }
-        public virtual DbSet<View_Departamento> View_Departamento { get; set; }
-        public virtual DbSet<View_Empresa> View_Empresa { get; set; }
-        public virtual DbSet<View_Pais> View_Pais { get; set; }
-        public virtual DbSet<View_Preguntas> View_Preguntas { get; set; }
-        public virtual DbSet<View_SectoresEmpresariales> View_SectoresEmpresariales { get; set; }
+        public virtual DbSet<Bloque> Bloque { get; set; }
+        public virtual DbSet<Ciudad> Ciudad { get; set; }
+        public virtual DbSet<Departamento> Departamento { get; set; }
+        public virtual DbSet<Elemento> Elemento { get; set; }
+        public virtual DbSet<Empresa> Empresa { get; set; }
+        public virtual DbSet<EmpresaGestor> EmpresaGestor { get; set; }
+        public virtual DbSet<Factor> Factor { get; set; }
+        public virtual DbSet<Gestor> Gestor { get; set; }
+        public virtual DbSet<Pais> Pais { get; set; }
+        public virtual DbSet<Pilar> Pilar { get; set; }
+        public virtual DbSet<Pregunta> Pregunta { get; set; }
+        public virtual DbSet<Respuesta> Respuesta { get; set; }
+        public virtual DbSet<SectorEmpresarial> SectorEmpresarial { get; set; }
+        public virtual DbSet<DtoCiudad> DtoCiudad { get; set; }
+        public virtual DbSet<DtoDepartamento> DtoDepartamento { get; set; }
+        public virtual DbSet<DtoEmpresa> DtoEmpresa { get; set; }
+        public virtual DbSet<DtoPais> DtoPais { get; set; }
+        public virtual DbSet<DtoPreguntas> DtoPreguntas { get; set; }
+        public virtual DbSet<DtoSectoresEmpresariales> DtoSectoresEmpresariales { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

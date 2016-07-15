@@ -12,10 +12,10 @@ namespace IDGI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_SectorEmpresarial
+    public partial class DtoDepartamento
     {
-        public int Id_SectorEmpresarial { get; set; }
-        public string Nom_Sector { get; set; }
-        public bool EstaActivo { get; set; }
+        public int Id_Pais { get; set; }
+        public string Nom_Departamento { get; set; }
+        public int Id_Departamento { get; set; }
     }
 }

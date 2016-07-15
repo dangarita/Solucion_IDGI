@@ -11,27 +11,27 @@ namespace IDGI.DataObjects
 {
     public class EmpresasDAO
     {
-        public List<View_Pais> ObtenerListaPaises()
+        public List<DtoPais> ObtenerListaPaises()
         {
             using (DB_IDGIEntities db = new DB_IDGIEntities())
             {
-                return db.View_Pais.ToList();
+                return db.DtoPais.ToList();
             }
         }
 
         public ResultadoOperacion ObtenerListaDpto(int idPais)
         {
-            List<View_Departamento> lstDpto = new List<View_Departamento>();
+            List<DtoDepartamento> lstDpto = new List<DtoDepartamento>();
             ResultadoOperacion oResultadoListaDpto = new ResultadoOperacion();
             using (DB_IDGIEntities db = new DB_IDGIEntities())
             {
-                lstDpto = db.View_Departamento.ToList();                
+                lstDpto = db.DtoDepartamento.ToList();                
             }
 
-            List<View_Departamento> lstDptoFiltro = new List<View_Departamento>();
+            List<DtoDepartamento> lstDptoFiltro = new List<DtoDepartamento>();
             lstDptoFiltro = (from obj in lstDpto
                        where obj.Id_Pais == idPais
-                       select new View_Departamento
+                       select new DtoDepartamento
                        {
                            Id_Pais = obj.Id_Pais,
                            Id_Departamento = obj.Id_Departamento,
@@ -43,17 +43,17 @@ namespace IDGI.DataObjects
             return oResultadoListaDpto;
         }
 
-        public List<View_Ciudad> ObtenerListaCiudad(int IdDpto)
+        public List<DtoCiudad> ObtenerListaCiudad(int IdDpto)
         {
-            List<View_Ciudad> lstCiudad = new List<View_Ciudad>();
+            List<DtoCiudad> lstCiudad = new List<DtoCiudad>();
             using (DB_IDGIEntities db = new DB_IDGIEntities())
             {
-                lstCiudad = db.View_Ciudad.ToList();
+                lstCiudad = db.DtoCiudad.ToList();
             }
-            List<View_Ciudad> lstCiudadFiltro = new List<View_Ciudad>();
+            List<DtoCiudad> lstCiudadFiltro = new List<DtoCiudad>();
             lstCiudadFiltro = (from obj in lstCiudad
                             where obj.Id_Departamento == IdDpto
-                         select new View_Ciudad
+                         select new DtoCiudad
                          {
                              Id_Ciudad = obj.Id_Ciudad,
                              Id_Departamento = obj.Id_Departamento,
@@ -63,43 +63,43 @@ namespace IDGI.DataObjects
             return lstCiudadFiltro;
         }
 
-        public List<View_SectoresEmpresariales> ObtenerListaSectores()
+        public List<DtoSectoresEmpresariales> ObtenerListaSectores()
         {
-            List<View_SectoresEmpresariales> lstSectores = new List<View_SectoresEmpresariales>();
+            List<DtoSectoresEmpresariales> lstSectores = new List<DtoSectoresEmpresariales>();
 
             using (DB_IDGIEntities db = new DB_IDGIEntities())
             {
-                return db.View_SectoresEmpresariales.ToList();
+                return db.DtoSectoresEmpresariales.ToList();
             }
 
         }
 
-        public void InsertarEmpresa(Tbl_Empresa Empresa)
+        public void InsertarEmpresa(Empresa Empresa)
         {
 
             using (DB_IDGIEntities db = new DB_IDGIEntities())
             {
-                db.Tbl_Empresa.Add(Empresa);
+                db.Empresa.Add(Empresa);
                 db.SaveChanges();
             }
         }
 
-        public List<View_Empresa> ConsultarEmpresa(Tbl_Empresa oEmpresa)
+        public List<DtoEmpresa> ConsultarEmpresa(Empresa oEmpresa)
         {
-            List<View_Empresa> lstEmpresas = new List<View_Empresa>();
+            List<DtoEmpresa> lstEmpresas = new List<DtoEmpresa>();
 
             using (DB_IDGIEntities db = new DB_IDGIEntities())
             {
-                lstEmpresas = db.View_Empresa.ToList();
+                lstEmpresas = db.DtoEmpresa.ToList();
             }
             
             if (oEmpresa.Id_Empresa > 0)
             {
-                List<View_Empresa> lstEmpresaFiltro = new List<View_Empresa>();
+                List<DtoEmpresa> lstEmpresaFiltro = new List<DtoEmpresa>();
 
                 lstEmpresaFiltro = (from obj in lstEmpresas
                                     where obj.Id_Empresa == oEmpresa.Id_Empresa
-                                    select new View_Empresa
+                                    select new DtoEmpresa
                                     {
                                         Correo_Empresa = obj.Correo_Empresa,
                                         Id_Ciudad = obj.Id_Ciudad,

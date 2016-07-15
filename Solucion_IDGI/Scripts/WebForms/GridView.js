@@ -4,20 +4,20 @@ function GridView() {
     this.sortExpression = null;
     this.sortDirection = null;
     this.dataKeys = null;
-    this.createPropertyString = GridView_createPropertyString;
-    this.setStateField = GridView_setStateValue;
-    this.getHiddenFieldContents = GridView_getHiddenFieldContents;
+    this.createPropertyString = GridDtocreatePropertyString;
+    this.setStateField = GridDtosetStateValue;
+    this.getHiddenFieldContents = GridDtogetHiddenFieldContents;
     this.stateField = null;
     this.panelElement = null;
     this.callback = null;
 }
-function GridView_createPropertyString() {
+function GridDtocreatePropertyString() {
     return createPropertyStringFromValues_GridView(this.pageIndex, this.sortDirection, this.sortExpression, this.dataKeys);
 }
-function GridView_setStateValue() {
+function GridDtosetStateValue() {
     this.stateField.value = this.createPropertyString();
 }
-function GridView_OnCallback (result, context) {
+function GridDtoOnCallback (result, context) {
     var value = new String(result);
     var valsArray = value.split("|");
     var innerHtml = valsArray[4];
@@ -27,7 +27,7 @@ function GridView_OnCallback (result, context) {
     context.panelElement.innerHTML = innerHtml;
     context.stateField.value = createPropertyStringFromValues_GridView(valsArray[0], valsArray[1], valsArray[2], valsArray[3]);
 }
-function GridView_getHiddenFieldContents(arg) {
+function GridDtogetHiddenFieldContents(arg) {
     return arg + "|" + this.stateField.value;
 }
 function createPropertyStringFromValues_GridView(pageIndex, sortDirection, sortExpression, dataKeys) {

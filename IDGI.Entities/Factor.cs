@@ -12,21 +12,21 @@ namespace IDGI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_Pregunta
+    public partial class Factor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tbl_Pregunta()
+        public Factor()
         {
-            this.Tbl_Respuesta = new HashSet<Tbl_Respuesta>();
+            this.Tbl_Elemento = new HashSet<Elemento>();
         }
     
-        public int Id_Pregunta { get; set; }
-        public string Nom_Pregunta { get; set; }
+        public int Id_Factor { get; set; }
+        public string Nom_Factor { get; set; }
         public bool EstaActivo { get; set; }
-        public int Id_Elemento { get; set; }
+        public Nullable<int> Id_Bloque { get; set; }
     
-        public virtual Tbl_Elemento Tbl_Elemento { get; set; }
+        public virtual Bloque Tbl_Bloque { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_Respuesta> Tbl_Respuesta { get; set; }
+        public virtual ICollection<Elemento> Tbl_Elemento { get; set; }
     }
 }

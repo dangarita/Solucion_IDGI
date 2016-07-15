@@ -12,22 +12,21 @@ namespace IDGI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_Gestor
+    public partial class Ciudad
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tbl_Gestor()
+        public Ciudad()
         {
-            this.Tbl_EmpresaGestor = new HashSet<Tbl_EmpresaGestor>();
-            this.Tbl_Respuesta = new HashSet<Tbl_Respuesta>();
+            this.Tbl_Empresa = new HashSet<Empresa>();
         }
     
-        public int Id_Gestor { get; set; }
-        public string Nom_Gestor { get; set; }
-        public string Ape_Gestor { get; set; }
+        public int Id_Ciudad { get; set; }
+        public string Nom_Ciudad { get; set; }
+        public string Codigo_Ciudad { get; set; }
+        public int Id_Departamento { get; set; }
     
+        public virtual Departamento Tbl_Departamento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_EmpresaGestor> Tbl_EmpresaGestor { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_Respuesta> Tbl_Respuesta { get; set; }
+        public virtual ICollection<Empresa> Tbl_Empresa { get; set; }
     }
 }

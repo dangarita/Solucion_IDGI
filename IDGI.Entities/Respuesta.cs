@@ -12,10 +12,16 @@ namespace IDGI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class View_SectoresEmpresariales
+    public partial class Respuesta
     {
-        public int Id_SectorEmpresarial { get; set; }
-        public string Nom_Sector { get; set; }
-        public bool EstaActivo { get; set; }
+        public int Id_Respuesta { get; set; }
+        public int Vlr_Respuesta { get; set; }
+        public int Id_Empresa { get; set; }
+        public Nullable<int> Id_Gestor { get; set; }
+        public int Id_Pregunta { get; set; }
+    
+        public virtual Empresa Tbl_Empresa { get; set; }
+        public virtual Gestor Tbl_Gestor { get; set; }
+        public virtual Pregunta Tbl_Pregunta { get; set; }
     }
 }

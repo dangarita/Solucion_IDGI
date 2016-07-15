@@ -12,13 +12,18 @@ namespace IDGI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_Ciudad
+    public partial class DtoEmpresa
     {
+        public int Id_Empresa { get; set; }
+        public string Nom_Empresa { get; set; }
+        public string Nit_Empresa { get; set; }
+        public string Dir_Empresa { get; set; }
+        public string Telf_Empresa { get; set; }
+        public string Correo_Empresa { get; set; }
+        public Nullable<int> Num_Personal { get; set; }
+        public string Nom_Contacto { get; set; }
+        public bool EstaActiva { get; set; }
         public int Id_Ciudad { get; set; }
-        public string Nom_Ciudad { get; set; }
-        public string Codigo_Ciudad { get; set; }
-        public int Id_Departamento { get; set; }
-    
-        public virtual Tbl_Departamento Tbl_Departamento { get; set; }
+        public int Id_SectorEmpresarial { get; set; }
     }
 }

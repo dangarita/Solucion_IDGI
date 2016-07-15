@@ -10,15 +10,15 @@ namespace Solucion_IDGI.Controllers
     [Serializable]
     public class Empresa_Controller : ControllerBase
     {
-        public List<View_Pais> ObtenerListaPais()
+        public List<DtoPais> ObtenerListaPais()
         {
-            List<View_Pais> LstpaisNew = new List<View_Pais>();
+            List<DtoPais> LstpaisNew = new List<DtoPais>();
 
             ResultadoOperacion oResultadoPais = _Model.ObtenerListaPais();
 
             if (oResultadoPais.oEstado == TipoRespuesta.Exito)
             {
-                LstpaisNew = (List<View_Pais>)oResultadoPais.ListaEntidadDatos;
+                LstpaisNew = (List<DtoPais>)oResultadoPais.ListaEntidadDatos;
             }
 
 

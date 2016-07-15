@@ -30,9 +30,9 @@ namespace Solucion_IDGI
             if (!IsPostBack)
             {
 
-                List<View_Pais> lstPais = _Empresa_Controller.ObtenerListaPais();
+                List<DtoPais> lstPais = _Empresa_Controller.ObtenerListaPais();
 
-                View_Pais objPais = new View_Pais();
+                DtoPais objPais = new DtoPais();
                 objPais.Id_Pais = 0;
                 objPais.Nom_Pais = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_MensajeSeleccion");
                 lstPais.Insert(0, objPais);

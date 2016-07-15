@@ -9,7 +9,7 @@ namespace IDGI.Model
         ResultadoOperacion ObtenerListaDptos(int idPais);
         ResultadoOperacion ObtenerListaPais();
         ResultadoOperacion ObtenerListaSectores();
-        ResultadoOperacion InsertarEmpresa(Tbl_Empresa Empresa);
+        ResultadoOperacion InsertarEmpresa(Empresa Empresa);
 
     }
 }

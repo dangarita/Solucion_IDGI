@@ -12,13 +12,13 @@ namespace IDGI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_Empresa
+    public partial class Empresa
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tbl_Empresa()
+        public Empresa()
         {
-            this.Tbl_EmpresaGestor = new HashSet<Tbl_EmpresaGestor>();
-            this.Tbl_Respuesta = new HashSet<Tbl_Respuesta>();
+            this.Tbl_EmpresaGestor = new HashSet<EmpresaGestor>();
+            this.Tbl_Respuesta = new HashSet<Respuesta>();
         }
     
         public int Id_Empresa { get; set; }
@@ -33,9 +33,11 @@ namespace IDGI.Entities
         public int Id_Ciudad { get; set; }
         public int Id_SectorEmpresarial { get; set; }
     
+        public virtual Ciudad Tbl_Ciudad { get; set; }
+        public virtual SectorEmpresarial Tbl_SectorEmpresarial { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_EmpresaGestor> Tbl_EmpresaGestor { get; set; }
+        public virtual ICollection<EmpresaGestor> Tbl_EmpresaGestor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_Respuesta> Tbl_Respuesta { get; set; }
+        public virtual ICollection<Respuesta> Tbl_Respuesta { get; set; }
     }
 }

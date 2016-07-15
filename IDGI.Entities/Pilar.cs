@@ -12,17 +12,19 @@ namespace IDGI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class View_Preguntas
+    public partial class Pilar
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Pilar()
+        {
+            this.Tbl_Bloque = new HashSet<Bloque>();
+        }
+    
         public int Id_Pilar { get; set; }
-        public int Id_Bloque { get; set; }
-        public int Id_Factor { get; set; }
-        public int Id_Elemento { get; set; }
-        public int Id_Pregunta { get; set; }
         public string Nom_Pilar { get; set; }
-        public string Nom_Bloque { get; set; }
-        public string Nom_Factor { get; set; }
-        public string Nom_Elemento { get; set; }
-        public string Nom_Pregunta { get; set; }
+        public bool EstaActivo { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Bloque> Tbl_Bloque { get; set; }
     }
 }

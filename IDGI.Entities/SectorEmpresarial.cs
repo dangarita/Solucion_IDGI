@@ -12,19 +12,19 @@ namespace IDGI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_Pilar
+    public partial class SectorEmpresarial
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tbl_Pilar()
+        public SectorEmpresarial()
         {
-            this.Tbl_Bloque = new HashSet<Tbl_Bloque>();
+            this.Tbl_Empresa = new HashSet<Empresa>();
         }
     
-        public int Id_Pilar { get; set; }
-        public string Nom_Pilar { get; set; }
+        public int Id_SectorEmpresarial { get; set; }
+        public string Nom_Sector { get; set; }
         public bool EstaActivo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_Bloque> Tbl_Bloque { get; set; }
+        public virtual ICollection<Empresa> Tbl_Empresa { get; set; }
     }
 }

@@ -10,15 +10,15 @@ namespace Solucion_IDGI.Controllers
     [Serializable]
     public class CrudEmpresa_Controller : ControllerBase
     {
-        public List<View_Pais> ObtenerListaPais()
+        public List<DtoPais> ObtenerListaPais()
         {
-            List<View_Pais> LstpaisNew = new List<View_Pais>();
+            List<DtoPais> LstpaisNew = new List<DtoPais>();
 
             ResultadoOperacion oResultadoPais = _Model.ObtenerListaPais();
 
             if (oResultadoPais.oEstado == TipoRespuesta.Exito)
             {
-                LstpaisNew = (List<View_Pais>)oResultadoPais.ListaEntidadDatos;
+                LstpaisNew = (List<DtoPais>)oResultadoPais.ListaEntidadDatos;
             }
 
 
@@ -27,13 +27,13 @@ namespace Solucion_IDGI.Controllers
 
         public ResultadoOperacion ObtenerListDpto(int idPais)
         {
-            List<View_Departamento> LstDptoNew = new List<View_Departamento>();
+            List<DtoDepartamento> LstDptoNew = new List<DtoDepartamento>();
 
             ResultadoOperacion oResultadoDpto = _Model.ObtenerListaDptos(idPais);
 
             if (oResultadoDpto.oEstado == TipoRespuesta.Exito)
             {
-                LstDptoNew = (List<View_Departamento>)oResultadoDpto.ListaEntidadDatos;
+                LstDptoNew = (List<DtoDepartamento>)oResultadoDpto.ListaEntidadDatos;
                 oResultadoDpto.ListaEntidadDatos = LstDptoNew;
             }
 
@@ -42,35 +42,35 @@ namespace Solucion_IDGI.Controllers
 
         public ResultadoOperacion ObtenerListCiudad(int idDpto)
         {
-            List<View_Ciudad> LstCiudadNew = new List<View_Ciudad>();
+            List<DtoCiudad> LstCiudadNew = new List<DtoCiudad>();
 
             ResultadoOperacion oResultadoCiudad = _Model.ObtenerListaCiudad(idDpto);
 
             if (oResultadoCiudad.oEstado == TipoRespuesta.Exito)
             {
-                LstCiudadNew = (List<View_Ciudad>)oResultadoCiudad.ListaEntidadDatos;
+                LstCiudadNew = (List<DtoCiudad>)oResultadoCiudad.ListaEntidadDatos;
                 oResultadoCiudad.ListaEntidadDatos = LstCiudadNew;
             }
 
             return oResultadoCiudad;
         }
 
-        public List<View_SectoresEmpresariales> ObtenerListaSectores()
+        public List<DtoSectoresEmpresariales> ObtenerListaSectores()
         {
-            List<View_SectoresEmpresariales> LstSectorNew = new List<View_SectoresEmpresariales>();
+            List<DtoSectoresEmpresariales> LstSectorNew = new List<DtoSectoresEmpresariales>();
 
             ResultadoOperacion oResultadoSector = _Model.ObtenerListaSectores();
 
             if (oResultadoSector.oEstado == TipoRespuesta.Exito)
             {
-                LstSectorNew = (List<View_SectoresEmpresariales>)oResultadoSector.ListaEntidadDatos;
+                LstSectorNew = (List<DtoSectoresEmpresariales>)oResultadoSector.ListaEntidadDatos;
             }
 
 
             return LstSectorNew;
         }
 
-        public ResultadoOperacion InsertarEmpresa(Tbl_Empresa Empresa)
+        public ResultadoOperacion InsertarEmpresa(Empresa Empresa)
         {
             return _Model.InsertarEmpresa(Empresa);
         }

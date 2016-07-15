@@ -12,9 +12,10 @@ namespace IDGI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class View_Pais
+    public partial class DtoCiudad
     {
-        public int Id_Pais { get; set; }
-        public string Nom_Pais { get; set; }
+        public int Id_Ciudad { get; set; }
+        public string Nom_Ciudad { get; set; }
+        public int Id_Departamento { get; set; }
     }
 }

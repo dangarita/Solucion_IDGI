@@ -40,76 +40,73 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bloque.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ciudad.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Departamento.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DtoCiudad.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DtoDepartamento.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DtoEmpresa.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DtoPais.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DtoPreguntas.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DtoSectoresEmpresariales.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Elemento.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Empresa.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmpresaGestor.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Factor.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gestor.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
     <Compile Include="Idgi.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Idgi.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pais.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pilar.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pregunta.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Respuesta.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SectorEmpresarial.cs">
+      <DependentUpon>Idgi.tt</DependentUpon>
+    </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Idgi.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Tbl_Bloque.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Tbl_Ciudad.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Tbl_Departamento.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Tbl_Elemento.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Tbl_Empresa.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Tbl_EmpresaGestor.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Tbl_Factor.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Tbl_Gestor.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Tbl_Pais.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Tbl_Pilar.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Tbl_Pregunta.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Tbl_Respuesta.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Tbl_SectorEmpresarial.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="View_Ciudad.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="View_Departamento.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="View_Empresa.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="View_Pais.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="View_Preguntas.cs">
-      <DependentUpon>Idgi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="View_SectoresEmpresariales.cs">
       <DependentUpon>Idgi.tt</DependentUpon>
     </Compile>
   </ItemGroup>

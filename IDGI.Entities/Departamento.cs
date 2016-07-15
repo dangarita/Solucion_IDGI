@@ -12,19 +12,21 @@ namespace IDGI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_Pais
+    public partial class Departamento
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tbl_Pais()
+        public Departamento()
         {
-            this.Tbl_Departamento = new HashSet<Tbl_Departamento>();
+            this.Tbl_Ciudad = new HashSet<Ciudad>();
         }
     
+        public int Id_Departamento { get; set; }
+        public string Nom_Departamento { get; set; }
+        public string Codigo_Departamento { get; set; }
         public int Id_Pais { get; set; }
-        public string Nom_Pais { get; set; }
-        public string Codigo_Pais { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_Departamento> Tbl_Departamento { get; set; }
+        public virtual ICollection<Ciudad> Tbl_Ciudad { get; set; }
+        public virtual Pais Tbl_Pais { get; set; }
     }
 }

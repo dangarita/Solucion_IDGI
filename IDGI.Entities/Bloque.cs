@@ -12,12 +12,12 @@ namespace IDGI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_Bloque
+    public partial class Bloque
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tbl_Bloque()
+        public Bloque()
         {
-            this.Tbl_Factor = new HashSet<Tbl_Factor>();
+            this.Tbl_Factor = new HashSet<Factor>();
         }
     
         public int Id_Bloque { get; set; }
@@ -25,8 +25,8 @@ namespace IDGI.Entities
         public bool EstaActivo { get; set; }
         public int Id_Pilar { get; set; }
     
-        public virtual Tbl_Pilar Tbl_Pilar { get; set; }
+        public virtual Pilar Tbl_Pilar { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_Factor> Tbl_Factor { get; set; }
+        public virtual ICollection<Factor> Tbl_Factor { get; set; }
     }
 }

@@ -37,19 +37,19 @@ namespace Solucion_IDGI.Empresas
                 ViewState["_OperacionCRUD"] = value;
             }
         }
-        protected List<View_SectoresEmpresariales> ListaSectorEmpresarial
+        protected List<DtoSectoresEmpresariales> ListaSectorEmpresarial
         {
-            get { return (ViewState["ListaSectorEmpresarial"] == null) ? new List<View_SectoresEmpresariales>() : (List<View_SectoresEmpresariales>)ViewState["ListaSectorEmpresarial"]; }
+            get { return (ViewState["ListaSectorEmpresarial"] == null) ? new List<DtoSectoresEmpresariales>() : (List<DtoSectoresEmpresariales>)ViewState["ListaSectorEmpresarial"]; }
             set
             {
                 ViewState["ListaSectorEmpresarial"] = value;
             }
         }
-        protected Tbl_Empresa oEmpresaNew
+        protected Empresa oEmpresaNew
         {
             get
             {
-                Tbl_Empresa oEmpresa = new Tbl_Empresa();
+                Empresa oEmpresa = new Empresa();
 
                 oEmpresa.Nom_Empresa = txtEmpresa.Text;
                 oEmpresa.Nit_Empresa = txtNit.Text;
@@ -129,9 +129,9 @@ namespace Solucion_IDGI.Empresas
             ResultadoOperacion oResultadoDpto = _CrudEmpresa_Controller.ObtenerListDpto(idPais);
             if (oResultadoDpto.oEstado == TipoRespuesta.Exito)
             {
-                List<View_Departamento> lstDpto = (List<View_Departamento>)oResultadoDpto.ListaEntidadDatos;
+                List<DtoDepartamento> lstDpto = (List<DtoDepartamento>)oResultadoDpto.ListaEntidadDatos;
 
-                View_Departamento objDpto = new View_Departamento();
+                DtoDepartamento objDpto = new DtoDepartamento();
                 objDpto.Id_Departamento = 0;
                 objDpto.Nom_Departamento = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_MensajeSeleccion");
                 lstDpto.Insert(0, objDpto);
@@ -153,9 +153,9 @@ namespace Solucion_IDGI.Empresas
             ResultadoOperacion oResultadoCiudad = _CrudEmpresa_Controller.ObtenerListCiudad(idDpto);
             if (oResultadoCiudad.oEstado == TipoRespuesta.Exito)
             {
-                List<View_Ciudad> lstCiudad = (List<View_Ciudad>)oResultadoCiudad.ListaEntidadDatos;
+                List<DtoCiudad> lstCiudad = (List<DtoCiudad>)oResultadoCiudad.ListaEntidadDatos;
 
-                View_Ciudad objCiudad = new View_Ciudad();
+                DtoCiudad objCiudad = new DtoCiudad();
                 objCiudad.Id_Ciudad = 0;
                 objCiudad.Nom_Ciudad = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_MensajeSeleccion");
                 lstCiudad.Insert(0, objCiudad);
@@ -170,9 +170,9 @@ namespace Solucion_IDGI.Empresas
         }
         private void CargarListas()
         {
-            List<View_Pais> lstPais = _CrudEmpresa_Controller.ObtenerListaPais();
+            List<DtoPais> lstPais = _CrudEmpresa_Controller.ObtenerListaPais();
 
-            View_Pais objPais = new View_Pais();
+            DtoPais objPais = new DtoPais();
             objPais.Id_Pais = 0;
             objPais.Nom_Pais = Multilanguage.GetResourceManagerMultilingual(Session["ColtureInfo"].ToString(), "ResGeneral", "General_MensajeSeleccion");
             lstPais.Insert(0, objPais);
@@ -180,7 +180,7 @@ namespace Solucion_IDGI.Empresas
             ddlPais.DataSource = lstPais;
             ddlPais.DataBind();
 
-            List<View_SectoresEmpresariales> lstSectores = _CrudEmpresa_Controller.ObtenerListaSectores();
+            List<DtoSectoresEmpresariales> lstSectores = _CrudEmpresa_Controller.ObtenerListaSectores();
 
             lisbxSectorEmpresa.DataSource = lstSectores;
             lisbxSectorEmpresa.DataBind();
